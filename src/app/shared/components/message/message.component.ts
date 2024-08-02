@@ -10,7 +10,6 @@ import { Component, input, output } from '@angular/core';
 export class MessageComponent {
   message = input<string | null>(null);
   type = input<'success' | 'error' | null>(null);
-
   handleClose = output<void>();
 
   close(): void {
