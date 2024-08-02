@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../spinner/spinner.component';
 
@@ -9,7 +9,7 @@ import { SpinnerComponent } from '../spinner/spinner.component';
   templateUrl: './button.component.html'
 })
 export class ButtonComponent {
-  @Input() type: 'button' | 'submit' | 'reset' = 'submit';
-  @Input() loading: boolean | null = false;
-  @Input() disabled: boolean | null = false;
+  type = input<'button' | 'submit' | 'reset'>('button');
+  loading = input<boolean>(false);
+  disabled = input<boolean>(false);
 }
