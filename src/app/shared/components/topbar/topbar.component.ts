@@ -1,10 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, signal, WritableSignal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { authActions } from '../../auth/data-access/auth.actions';
-import { selectUser as selectAuthUser } from '../../auth/data-access/auth.reducers';
+import { authActions } from '../../store/auth/data-access/auth.actions';
+import { selectUser as selectAuthUser } from '../../store/auth/data-access/auth.reducers';
 import { User } from '../../types/models-interfaces';
 import { LinkInterface } from './types/link.interface';
 import { FormsModule } from '@angular/forms';
@@ -18,12 +18,9 @@ import { AppStoreInterface } from '../../types/app-store.interface';
 })
 export class TopbarComponent {
   user$: Observable<User | null>;
-  isOpen: boolean = false;
+  isOpen: WritableSignal<boolean> = signal(false);
 
-  constructor(
-    private store: Store<AppStoreInterface>,
-    private router: Router
-  ) {
+  constructor(private store: Store<AppStoreInterface>, private router: Router) {
     this.user$ = this.store.pipe(select(selectAuthUser));
   }
 
@@ -41,11 +38,11 @@ export class TopbarComponent {
   authLinks: LinkInterface[] = [
     {
       name: 'Se connecter',
-      path: '/login'
+      path: '/auth/login'
     },
     {
       name: "S'inscrire",
-      path: '/register'
+      path: '/auth/register'
     }
   ];
 
@@ -59,22 +56,14 @@ export class TopbarComponent {
     return name.length > 15 ? name.substring(0, 15) + '...' : name;
   }
 
-  openNavbar(): void {
-    this.isOpen = true;
-  }
-
-  closeNavbar(): void {
-    this.isOpen = false;
-  }
-
-  isActive(path: string): boolean {
-    return this.router.url === path;
+  toogleMenu(): void {
+    this.isOpen.update((value) => !value);
   }
 
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
     const isNavbar = target.closest('.navbar');
-    if (!isNavbar) this.isOpen = false;
+    if (!isNavbar) this.isOpen.set(false);
   }
 }

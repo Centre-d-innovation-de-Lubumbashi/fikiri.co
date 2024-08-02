@@ -1,45 +1,28 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+import { authRoutes } from './pages/auth/auth.routes';
 
 export const routes: Routes = [
   {
     path: 'solutions/:id',
     title: 'Solution - details',
-    loadComponent: () => import('./solution/solution.component').then((c) => c.SolutionComponent)
+    loadComponent: () => import('./pages/solution/solution.component').then((c) => c.SolutionComponent)
   },
   {
     path: 'solutions',
     title: 'Solutions',
-    loadComponent: () => import('./solutions/solutions.component').then((c) => c.SolutionsComponent)
+    loadComponent: () => import('./pages/solutions/solutions.component').then((c) => c.SolutionsComponent)
   },
   {
     path: 'register',
     title: 'Inscription',
-    loadComponent: () => import('./auth/register/register.component').then((c) => c.RegisterComponent)
+    loadComponent: () => import('./pages/auth/register/register.component').then((c) => c.RegisterComponent)
   },
   {
-    path: 'login',
-    title: 'Connexion',
-    loadComponent: () => import('./auth/login/login.component').then((c) => c.LoginComponent)
+    path: 'auth',
+    children: authRoutes
   },
-  {
-    path: 'reset-password-request',
-    title: 'Réinitialisation du mot de passe',
-    loadComponent: () =>
-      import('./auth/reset-password-request/reset-password-request.component').then(
-        (c) => c.ResetPasswordRequestComponent
-      )
-  },
-  {
-    path: 'reset-password',
-    title: 'Réinitialisation du mot de passe',
-    loadComponent: () => import('./auth/reset-password/reset-password.component').then((c) => c.ResetPasswordComponent)
-  },
-  {
-    path: 'profile',
-    title: 'Profil',
-    loadComponent: () => import('./auth/profile/profile.component').then((c) => c.ProfileComponent)
-  },
+
   {
     path: '',
     title: 'Accueil',
@@ -48,6 +31,6 @@ export const routes: Routes = [
   {
     path: '**',
     title: 'Page non trouvée',
-    loadComponent: () => import('./not-found/not-found.component').then((c) => c.NotFoundComponent)
+    loadComponent: () => import('./pages/not-found/not-found.component').then((c) => c.NotFoundComponent)
   }
 ];

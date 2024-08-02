@@ -1,11 +1,11 @@
 <button
   [disabled]="disablePrev"
   (click)="onPrevClick()"
-  class="disabled:bg-green-300/40 disabled:cursor-not-allowed"
+  class="disabled:bg-blue-300/40 disabled:cursor-not-allowed"
   [ngClass]="
     type === 'default'
-      ? 'absolute top-1/2 -left-4 shadow-lg p-2 rounded-full bg-green-300 cursor-pointer'
-      : 'font-medium text-sm flex items-center text-black bg-green-400/70 rounded-md px-6 py-2 justify-center gap-1 '
+      ? 'absolute top-1/2 -left-4 shadow-lg p-2 rounded-full bg-blue-300 cursor-pointer'
+      : 'font-medium text-sm flex items-center text-black bg-blue-400/70 rounded-md px-6 py-2 justify-center gap-1 '
   ">
   @if (type === 'default' ) {
   <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-arrow-left h-4 w-4 fill-black" viewBox="0 0 16 16">
@@ -32,11 +32,11 @@
 <button
   [disabled]="disableNext"
   (click)="onNextClick()"
-  class="disabled:bg-green-300/40 disabled:cursor-not-allowed"
+  class="disabled:bg-blue-300/40 disabled:cursor-not-allowed"
   [ngClass]="
     type === 'default'
-      ? 'absolute top-1/2 -right-4 shadow-lg p-2 rounded-full bg-green-300 cursor-pointer'
-      : 'font-medium text-sm flex items-center text-black bg-green-400/70 rounded-md px-6 py-2 justify-center gap-1'
+      ? 'absolute top-1/2 -right-4 shadow-lg p-2 rounded-full bg-blue-300 cursor-pointer'
+      : 'font-medium text-sm flex items-center text-black bg-blue-400/70 rounded-md px-6 py-2 justify-center gap-1'
   ">
   @if (type === 'default') {
   <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-arrow-right h-4 w-4 fill-black" viewBox="0 0 16 16">

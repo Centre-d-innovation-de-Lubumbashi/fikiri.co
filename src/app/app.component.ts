@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { authActions } from './shared/auth/data-access/auth.actions';
+import { authActions } from './shared/store/auth/data-access/auth.actions';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { registerLocaleData } from '@angular/common';

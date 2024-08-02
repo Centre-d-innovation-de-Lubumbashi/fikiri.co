@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../spinner/spinner.component';
 
@@ -9,6 +9,6 @@ import { SpinnerComponent } from '../spinner/spinner.component';
   templateUrl: './button-outline.component.html'
 })
 export class ButtonOutlineComponent {
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
-  @Input() loading: boolean = false;
+  type = input<'button' | 'submit' | 'reset'>('button');
+  loading = input<boolean>(false);
 }

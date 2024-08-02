@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,5 +8,5 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule]
 })
 export class FormCardComponent {
-  @Input() formTitle: string = '';
+  formTitle = input.required<string>();
 }

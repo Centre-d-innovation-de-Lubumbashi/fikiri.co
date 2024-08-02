@@ -1,16 +1,13 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,ts}', '../src/dist/**/*.{html,ts}'],
   theme: {
     extend: {
       backgroundImage: {
-        hero: 'url("/assets/images/hero.webp")',
-        about: 'url("/assets/images/about.webp")',
-        footer: 'url("/assets/images/footer.png")'
+        hero: 'url("/images/hero.webp")'
       }
     },
     fontFamily: {
-      bevietnam: ['Be Vietnam Pro', 'sans-serif']
+      general: ['General Sans', 'sans-serif']
     }
   },
   plugins: []

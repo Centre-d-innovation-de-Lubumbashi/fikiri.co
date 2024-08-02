@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { ControlContainer, ReactiveFormsModule } from '@angular/forms';
-import { ApiValiationsErrorsInterface } from '../../auth/types/api-valiations-errors.interface';
 import { NgClass } from '@angular/common';
+import { ApiValiationsErrorsInterface } from '../../store/auth/types/api-valiations-errors.interface';
 
 @Component({
   selector: 'app-input',
@@ -16,10 +16,10 @@ import { NgClass } from '@angular/common';
   templateUrl: './input.component.html'
 })
 export class InputComponent {
-  @Input() name: string = '';
-  @Input() label: string = '';
+  @Input() name = '';
+  @Input() label = '';
   @Input() type: 'email' | 'password' | 'text' | 'number' = 'text';
-  @Input() placeholder: string = '';
+  @Input() placeholder = '';
   @Input() validationErrors: ApiValiationsErrorsInterface[] = [];
 
   getError(field: string): string {
