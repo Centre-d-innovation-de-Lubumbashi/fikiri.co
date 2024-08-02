@@ -9,7 +9,7 @@ export class SolutionService {
   constructor(private http: HttpClient) {}
 
   getSolution(id: number): Observable<SolutionResponseInterface> {
-    return this.http.get<SolutionResponseInterface>(`solutions/${id}`);
+    return this.http.get<{ data: SolutionResponseInterface }>(`solutions/${id}`).pipe(map((res) => res.data));
   }
 
   uploadImage(solutionId: number | undefined, file: FormData): Observable<Solution> {
