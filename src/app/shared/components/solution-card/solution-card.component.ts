@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Solution, User } from '../../types/models-interfaces';
+import { ISolution, User } from '../../types/models-interfaces';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -11,9 +11,9 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './solution-card.component.html'
 })
 export class SolutionCardComponent {
-  @Input() solution!: Solution;
+  @Input() solution!: ISolution;
 
-  displayImage(solution: Solution): string {
+  displayImage(solution: ISolution): string {
     return `${environment.apiUrl}/uploads/solutions/${solution.images.at(-1)?.image_link}`;
   }
 

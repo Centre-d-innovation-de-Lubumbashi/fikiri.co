@@ -7,7 +7,7 @@ import { mergeMap, Observable, tap } from 'rxjs';
 import { ResetPasswordRequestService } from './reset-password-request.service';
 import { ResetPasswordRequestPayloadInterface } from '../types/reset-password-request-payload.interface';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ApiValiationsErrorsInterface } from '../../../../shared/store/auth/types/api-valiations-errors.interface';
+import { IErrors } from '../../../../shared/store/auth/types/errors';
 
 @Injectable()
 export class ResetPasswordRequestStore extends ComponentStore<ResetPasswordRequestStoreInterface> {
@@ -20,7 +20,7 @@ export class ResetPasswordRequestStore extends ComponentStore<ResetPasswordReque
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setError = this.updater((state, error: string) => ({ ...state, error }));
-  setValidationErrors = this.updater((state, validationErrors: ApiValiationsErrorsInterface[]) => ({
+  setValidationErrors = this.updater((state, validationErrors: IErrors[]) => ({
     ...state,
     validationErrors
   }));

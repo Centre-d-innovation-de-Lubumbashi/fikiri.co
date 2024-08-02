@@ -1,7 +1,7 @@
-import { Solution } from '../../../../../shared/types/models-interfaces';
+import { ISolution } from '../../../../../shared/types/models-interfaces';
 
 export interface WinningSolutionsStoreInterface {
   isLoading: boolean;
-  solutions: Solution[];
+  solutions: ISolution[];
   error: string | null;
 }

@@ -5,7 +5,7 @@ import { exhaustMap, Observable, tap } from 'rxjs';
 import { WinningSolutionsService } from './winning-solutions.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { tapResponse } from '@ngrx/operators';
-import { Solution } from '../../../../../shared/types/models-interfaces';
+import { ISolution } from '../../../../../shared/types/models-interfaces';
 
 @Injectable()
 export class WinningSolutionsStore extends ComponentStore<WinningSolutionsStoreInterface> {
@@ -17,7 +17,7 @@ export class WinningSolutionsStore extends ComponentStore<WinningSolutionsStoreI
   }
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
-  setSolutions = this.updater((state, solutions: Solution[]) => ({ ...state, solutions }));
+  setSolutions = this.updater((state, solutions: ISolution[]) => ({ ...state, solutions }));
   setError = this.updater((state, error: string) => ({ ...state, error }));
 
   loadSolutions = this.effect<void>((trigger$: Observable<void>) =>

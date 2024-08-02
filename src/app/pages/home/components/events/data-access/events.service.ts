@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Event } from '../../../../../shared/types/models-interfaces';
+import { IEvent } from '../../../../../shared/types/models-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Event } from '../../../../../shared/types/models-interfaces';
 export class eventsService {
   constructor(private http: HttpClient) {}
 
-  getEvents(): Observable<Event[]> {
-    return this.http.get<{ data: Event[] }>('events').pipe(map((res) => res.data));
+  getEvents(): Observable<IEvent[]> {
+    return this.http.get<{ data: IEvent[] }>('events').pipe(map((res) => res.data));
   }
 }

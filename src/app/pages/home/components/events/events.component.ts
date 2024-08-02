@@ -5,7 +5,7 @@ import { EventsStoreInterface } from './types/events-store.interface';
 import { AsyncPipe, DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage, SlicePipe } from '@angular/common';
 import { environment } from '../../../../../environments/environment';
 import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
-import { Image } from '../../../../shared/types/models-interfaces';
+import { IImage } from '../../../../shared/types/models-interfaces';
 
 @Component({
   selector: 'app-calls',
@@ -26,11 +26,11 @@ export class EventsComponent implements OnInit {
     this.store.getEvents();
   }
 
-  displayImage(image: Image): string {
+  displayImage(image: IImage): string {
     return `${environment.apiUrl}uploads/events/${image.image_link}`;
   }
 
-  nextImage(images: Image[]): void {
+  nextImage(images: IImage[]): void {
     if (this.currentImageIndex < images.length - 1) this.currentImageIndex++;
   }
 

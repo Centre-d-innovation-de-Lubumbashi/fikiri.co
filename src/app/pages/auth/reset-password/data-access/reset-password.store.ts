@@ -7,7 +7,7 @@ import { ResetPasswordStoreInterface } from '../types/reset-password-store.inter
 import { ResetPasswordPayloadInterface } from '../types/reset-password-payload.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ResetPasswordService } from './reset-pasword.service';
-import { ApiValiationsErrorsInterface } from '../../../../shared/store/auth/types/api-valiations-errors.interface';
+import { IErrors } from '../../../../shared/store/auth/types/errors';
 
 @Injectable()
 export class ResetPasswordStore extends ComponentStore<ResetPasswordStoreInterface> {
@@ -20,7 +20,7 @@ export class ResetPasswordStore extends ComponentStore<ResetPasswordStoreInterfa
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setError = this.updater((state, error: string) => ({ ...state, error }));
-  setValidationErrors = this.updater((state, validationErrors: ApiValiationsErrorsInterface[]) => ({
+  setValidationErrors = this.updater((state, validationErrors: IErrors[]) => ({
     ...state,
     validationErrors
   }));

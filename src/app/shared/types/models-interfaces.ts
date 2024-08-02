@@ -1,4 +1,4 @@
-export interface Event {
+export interface IEvent {
   id: number;
   name: string;
   started_at: Date;
@@ -6,12 +6,12 @@ export interface Event {
   description: string;
   created_at: Date;
   updated_at: Date;
-  images: Image[];
-  solutions?: Solution[];
-  thematics: Thematic[];
+  images: IImage[];
+  solutions?: ISolution[];
+  thematics: IThematic[];
 }
 
-export interface Role {
+export interface IRole {
   id: number;
   name: string;
   created_at: Date;
@@ -19,7 +19,7 @@ export interface Role {
   users?: User[];
 }
 
-export interface Solution {
+export interface ISolution {
   id: number;
   name: string;
   video_link: string;
@@ -28,46 +28,46 @@ export interface Solution {
   targeted_problem: string;
   created_at: Date;
   updated_at: Date;
-  call: Event;
-  status: Status;
-  thematic: Thematic;
+  call: IEvent;
+  status: IStatus;
+  thematic: IThematic;
   user: User;
-  challenges: Challenge[];
-  images: Image[];
+  challenges: IChallenge[];
+  images: IImage[];
 }
 
-export interface Image {
+export interface IImage {
   id: number;
   image_link: string;
   created_at: Date;
   updated_at: Date;
 }
 
-export interface Status {
+export interface IStatus {
   id: number;
   name: string;
   created_at: Date;
   updated_at: Date;
 }
 
-export interface Thematic {
+export interface IThematic {
   id: number;
   name: string;
   odds: string;
   created_at: Date;
   updated_at: Date;
-  solutions: Solution[];
-  calls: Event[];
-  challenges: Challenge[];
+  solutions: ISolution[];
+  calls: IEvent[];
+  challenges: IChallenge[];
 }
 
-export interface Challenge {
+export interface IChallenge {
   id: number;
   name: string;
   created_at: Date;
   updated_at: Date;
-  solutions: Solution[];
-  thematics: Thematic[];
+  solutions: ISolution[];
+  thematics: IThematic[];
 }
 
 export interface User {
@@ -82,6 +82,6 @@ export interface User {
   profile: string;
   created_at: Date;
   updated_at: Date;
-  solutions: Solution[];
-  roles: Role[];
+  solutions: ISolution[];
+  roles: IRole[];
 }

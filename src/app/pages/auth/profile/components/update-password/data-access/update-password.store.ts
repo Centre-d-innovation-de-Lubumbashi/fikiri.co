@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { UpdatePasswordStoreInterface } from '../types/update-password-store.interface';
 import { PasswordPayloadInterface } from '../types/password-payload.interface';
 import { UpdatePasswordService } from './update-password.service';
-import { ApiValiationsErrorsInterface } from '../../../../../../shared/store/auth/types/api-valiations-errors.interface';
+import { IErrors } from '../../../../../../shared/store/auth/types/errors';
 import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class UpdatePasswordStore extends ComponentStore<UpdatePasswordStoreInter
 
   setIsLoading = this.updater((state, isUpdatingImage: boolean) => ({ ...state, isUpdatingImage }));
   setMessage = this.updater((state, message: MessageInterface) => ({ ...state, message }));
-  setErrors = this.updater((state, errors: ApiValiationsErrorsInterface[]) => ({ ...state, errors }));
+  setErrors = this.updater((state, errors: IErrors[]) => ({ ...state, errors }));
   resetUpdateImageMessage() {
     this.setMessage({ type: null, message: null });
   }

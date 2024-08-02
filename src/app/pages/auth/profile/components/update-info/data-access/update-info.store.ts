@@ -9,7 +9,7 @@ import { InfoPayloadInterface } from '../types/update-info-payload.interface';
 import { UpdateInfoStoreInterface } from '../types/update-info-store.interface';
 import { authActions } from '../../../../../../shared/store/auth/data-access/auth.actions';
 import { selectUser } from '../../../../../../shared/store/auth/data-access/auth.reducers';
-import { ApiValiationsErrorsInterface } from '../../../../../../shared/store/auth/types/api-valiations-errors.interface';
+import { IErrors } from '../../../../../../shared/store/auth/types/errors';
 import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
 import { User } from '../../../../../../shared/types/models-interfaces';
 
@@ -26,7 +26,7 @@ export class UpdateInfoStore extends ComponentStore<UpdateInfoStoreInterface> {
   }
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setMessage = this.updater((state, message: MessageInterface) => ({ ...state, message }));
-  setErrors = this.updater((state, errors: ApiValiationsErrorsInterface[]) => ({ ...state, errors }));
+  setErrors = this.updater((state, errors: IErrors[]) => ({ ...state, errors }));
   resetInfoUpdateMessage() {
     this.setMessage({ type: null, message: null });
   }

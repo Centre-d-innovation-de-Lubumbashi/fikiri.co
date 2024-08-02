@@ -8,7 +8,7 @@ import { SolutionService } from './data-access/solution.service';
 import { environment } from '../../../environments/environment';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
 import { ConvertToLowercasePipe } from '../../shared/pipes/convert-to-lowercase.pipe';
-import { Image, User } from '../../shared/types/models-interfaces';
+import { IImage, User } from '../../shared/types/models-interfaces';
 import { SpinnerComponent } from '../../shared/ui/spinner/spinner.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 
@@ -40,11 +40,11 @@ export class SolutionComponent implements OnInit {
     this.load(id);
   }
 
-  displayImage(image: Image): string {
+  displayImage(image: IImage): string {
     return `${environment.apiUrl}uploads/solutions/${image.image_link}`;
   }
 
-  nextImage(images: Image[]): void {
+  nextImage(images: IImage[]): void {
     if (this.currentImageIndex < images.length - 1) this.currentImageIndex++;
   }
 

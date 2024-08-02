@@ -7,7 +7,7 @@ import { exhaustMap, Observable, tap } from 'rxjs';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ApiValiationsErrorsInterface } from '../../../../shared/store/auth/types/api-valiations-errors.interface';
+import { IErrors } from '../../../../shared/store/auth/types/errors';
 
 @Injectable()
 export class RegisterStore extends ComponentStore<RegisterStoreInterface> {
@@ -20,7 +20,7 @@ export class RegisterStore extends ComponentStore<RegisterStoreInterface> {
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setError = this.updater((state, error: string) => ({ ...state, error }));
-  setValidationErrors = this.updater((state, validationErrors: ApiValiationsErrorsInterface[]) => ({
+  setValidationErrors = this.updater((state, validationErrors: IErrors[]) => ({
     ...state,
     validationErrors
   }));

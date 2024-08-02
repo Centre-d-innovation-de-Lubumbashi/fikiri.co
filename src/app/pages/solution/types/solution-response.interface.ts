@@ -1,7 +1,7 @@
-import { Solution } from '../../../shared/types/models-interfaces';
+import { ISolution } from '../../../shared/types/models-interfaces';
 
 export interface SolutionResponseInterface {
-  solution: Solution | null;
+  solution: ISolution | null;
   prev: number | null;
   next: number | null;
 }

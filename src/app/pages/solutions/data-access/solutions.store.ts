@@ -4,7 +4,7 @@ import { tapResponse } from '@ngrx/operators';
 import { SolutionsStoreInterface } from '../types/solutions-store.interface';
 import { exhaustMap, Observable, tap } from 'rxjs';
 import { SolutionsService } from './solutions.service';
-import { Event, Solution, Thematic } from '../../../shared/types/models-interfaces';
+import { IEvent, ISolution, IThematic } from '../../../shared/types/models-interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SolutionsReponseInterface } from '../types/solutions-response.interface';
 import { QueryParams } from '../types/query-params.interface';
@@ -31,9 +31,9 @@ export class SolutionsStore extends ComponentStore<SolutionsStoreInterface> {
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setIsFiltering = this.updater((state, isFiltering: boolean) => ({ ...state, isFiltering }));
   setCount = this.updater((state, count: number) => ({ ...state, count }));
-  setThematics = this.updater((state, thematics: Thematic[]) => ({ ...state, thematics }));
-  setEvents = this.updater((state, events: Event[]) => ({ ...state, events }));
-  setSolutions = this.updater((state, solutions: Solution[]) => ({ ...state, solutions }));
+  setThematics = this.updater((state, thematics: IThematic[]) => ({ ...state, thematics }));
+  setEvents = this.updater((state, events: IEvent[]) => ({ ...state, events }));
+  setSolutions = this.updater((state, solutions: ISolution[]) => ({ ...state, solutions }));
   setError = this.updater((state, error: string) => ({ ...state, error }));
   setSearchResults = this.updater((state, searchResults: SearchResponseInterface) => ({ ...state, searchResults }));
 

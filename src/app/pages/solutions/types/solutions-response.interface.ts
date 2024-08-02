@@ -1,6 +1,6 @@
-import { Solution } from '../../../shared/types/models-interfaces';
+import { ISolution } from '../../../shared/types/models-interfaces';
 
 export interface SolutionsReponseInterface {
-  solutions: Solution[];
+  solutions: ISolution[];
   count: number;
 }

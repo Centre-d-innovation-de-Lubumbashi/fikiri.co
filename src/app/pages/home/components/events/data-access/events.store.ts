@@ -5,7 +5,7 @@ import { eventsService } from './events.service';
 import { exhaustMap, Observable, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { tapResponse } from '@ngrx/operators';
-import { Event } from '../../../../../shared/types/models-interfaces';
+import { IEvent } from '../../../../../shared/types/models-interfaces';
 
 @Injectable()
 export class eventsStore extends ComponentStore<EventsStoreInterface> {
@@ -17,7 +17,7 @@ export class eventsStore extends ComponentStore<EventsStoreInterface> {
   }
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
-  setEvents = this.updater((state, events: Event[]) => ({ ...state, events }));
+  setEvents = this.updater((state, events: IEvent[]) => ({ ...state, events }));
   setError = this.updater((state, error: string | null) => ({ ...state, error }));
 
   getEvents = this.effect<void>((trigger$) => {

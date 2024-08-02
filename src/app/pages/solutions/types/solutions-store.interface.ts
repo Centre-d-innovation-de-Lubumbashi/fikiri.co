@@ -1,13 +1,13 @@
-import { Event, Solution, Thematic } from '../../../shared/types/models-interfaces';
+import { IEvent, ISolution, IThematic } from '../../../shared/types/models-interfaces';
 import { SearchResponseInterface } from './search-response.interface';
 
 export interface SolutionsStoreInterface {
   isLoading: boolean;
   isFiltering: boolean;
   count: number;
-  solutions: Solution[];
+  solutions: ISolution[];
   searchResults: SearchResponseInterface | null;
-  events: Event[];
-  thematics: Thematic[];
+  events: IEvent[];
+  thematics: IThematic[];
   error: string | null;
 }

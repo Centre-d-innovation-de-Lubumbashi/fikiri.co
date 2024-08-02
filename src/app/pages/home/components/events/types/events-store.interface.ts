@@ -1,7 +1,7 @@
-import { Event } from '../../../../../shared/types/models-interfaces';
+import { IEvent } from '../../../../../shared/types/models-interfaces';
 
 export interface EventsStoreInterface {
   isLoading: boolean;
-  events: Event[];
+  events: IEvent[];
   error: string | null;
 }

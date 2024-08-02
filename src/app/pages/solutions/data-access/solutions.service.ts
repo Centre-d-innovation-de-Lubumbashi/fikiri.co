@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { SolutionsReponseInterface } from '../types/solutions-response.interface';
-import { Event, Thematic } from '../../../shared/types/models-interfaces';
+import { IEvent, IThematic } from '../../../shared/types/models-interfaces';
 import { QueryParams } from '../types/query-params.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SearchResponseInterface } from '../types/search-response.interface';
@@ -23,12 +23,12 @@ export class SolutionsService {
       .pipe(map((res) => res.data));
   }
 
-  getThematics(eventId: number): Observable<Thematic[]> {
-    return this.http.get<{ data: Thematic[] }>(`thematics/event/${eventId}`).pipe(map((response) => response.data));
+  getThematics(eventId: number): Observable<IThematic[]> {
+    return this.http.get<{ data: IThematic[] }>(`thematics/event/${eventId}`).pipe(map((response) => response.data));
   }
 
-  getEvents(): Observable<Event[]> {
-    return this.http.get<{ data: Event[] }>('events').pipe(map((response) => response.data));
+  getEvents(): Observable<IEvent[]> {
+    return this.http.get<{ data: IEvent[] }>('events').pipe(map((response) => response.data));
   }
 
   searchSolutions(query: string): Observable<SearchResponseInterface> {

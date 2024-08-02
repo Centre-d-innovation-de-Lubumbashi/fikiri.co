@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 import { authActions } from '../../../../../../shared/store/auth/data-access/auth.actions';
 import { selectUser } from '../../../../../../shared/store/auth/data-access/auth.reducers';
 import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
-import { User, Solution } from '../../../../../../shared/types/models-interfaces';
+import { User, ISolution } from '../../../../../../shared/types/models-interfaces';
 
 @Injectable()
 export class UserInfoStore extends ComponentStore<UserInfoStoreInterface> {
@@ -27,7 +27,7 @@ export class UserInfoStore extends ComponentStore<UserInfoStoreInterface> {
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setUpdateMessage = this.updater((state, message: MessageInterface) => ({ ...state, message }));
-  setSolutions = this.updater((state, solutions: Solution[]) => ({ ...state, solutions }));
+  setSolutions = this.updater((state, solutions: ISolution[]) => ({ ...state, solutions }));
   resetMessage() {
     this.setUpdateMessage({ type: null, message: null });
   }
