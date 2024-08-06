@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Observable } from 'rxjs';
 import { UpdatePasswordStoreInterface } from './types/update-password-store.interface';
 import { UpdatePasswordStore } from './data-access/update-password.store';
-import { MessageComponent } from '../../../../../shared/components/message/message.component';
+import { MessageComponent } from '../../../../../shared/components/notification/notification.component';
 import { ButtonComponent } from '../../../../../shared/ui/button/button.component';
 import { InputComponent } from '../../../../../shared/ui/input/input.component';
 

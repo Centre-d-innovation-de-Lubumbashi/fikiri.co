@@ -1,8 +1,8 @@
-import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
+import { INotification } from '../../../../../../shared/store/auth/types/notification.interface';
 import { ISolution } from '../../../../../../shared/types/models-interfaces';
 
 export interface UserInfoStoreInterface {
   isLoading: boolean;
-  message: MessageInterface;
+  message: INotification;
   solutions: ISolution[];
 }

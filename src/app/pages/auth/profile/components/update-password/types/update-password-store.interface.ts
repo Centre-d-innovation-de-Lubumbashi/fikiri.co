@@ -1,8 +1,8 @@
-import { IErrors } from '../../../../../../shared/store/auth/types/errors';
-import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
+import { IValidationError } from '../../../../../../shared/store/auth/types/validation-error.interface';
+import { INotification } from '../../../../../../shared/store/auth/types/notification.interface';
 
 export interface UpdatePasswordStoreInterface {
   isLoading: boolean;
-  message: MessageInterface;
-  errors: IErrors[];
+  message: INotification;
+  errors: IValidationError[];
 }

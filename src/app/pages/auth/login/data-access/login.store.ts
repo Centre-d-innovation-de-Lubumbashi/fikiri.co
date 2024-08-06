@@ -30,7 +30,7 @@ export class LoginStore extends ComponentStore<LoginStoreInterface> {
         this.loginService.login(payload).pipe(
           tapResponse({
             next: (user) => {
-              this.router.navigateByUrl('/auh/profile');
+              this.router.navigateByUrl('/auth/profile');
               this.store.dispatch(authActions.authenticateUser({ user }));
             },
             error: (error: HttpErrorResponse) => this.setError(error.error.message),

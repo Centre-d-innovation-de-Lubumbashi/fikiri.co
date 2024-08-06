@@ -7,7 +7,7 @@ import { ResetPasswordStoreInterface } from '../types/reset-password-store.inter
 import { ResetPasswordPayloadInterface } from '../types/reset-password-payload.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ResetPasswordService } from './reset-pasword.service';
-import { IErrors } from '../../../../shared/store/auth/types/errors';
+import { IValidationError } from '../../../../shared/store/auth/types/validation-error.interface';
 
 @Injectable()
 export class ResetPasswordStore extends ComponentStore<ResetPasswordStoreInterface> {
@@ -20,7 +20,7 @@ export class ResetPasswordStore extends ComponentStore<ResetPasswordStoreInterfa
 
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
   setError = this.updater((state, error: string) => ({ ...state, error }));
-  setValidationErrors = this.updater((state, validationErrors: IErrors[]) => ({
+  setValidationErrors = this.updater((state, validationErrors: IValidationError[]) => ({
     ...state,
     validationErrors
   }));
@@ -32,7 +32,7 @@ export class ResetPasswordStore extends ComponentStore<ResetPasswordStoreInterfa
       exhaustMap((payload) =>
         this.resetPasswordService.resetPassword(payload).pipe(
           tapResponse({
-            next: () => this.router.navigateByUrl('/login'),
+            next: () => this.router.navigateByUrl('/auth/login'),
             error: (error: HttpErrorResponse) => {
               const message = error.error.message;
               if (typeof message === 'string') return this.setError(error.error.message);

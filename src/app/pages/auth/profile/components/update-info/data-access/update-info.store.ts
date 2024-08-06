@@ -9,8 +9,8 @@ import { InfoPayloadInterface } from '../types/update-info-payload.interface';
 import { UpdateInfoStoreInterface } from '../types/update-info-store.interface';
 import { authActions } from '../../../../../../shared/store/auth/data-access/auth.actions';
 import { selectUser } from '../../../../../../shared/store/auth/data-access/auth.reducers';
-import { IErrors } from '../../../../../../shared/store/auth/types/errors';
-import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
+import { IValidationError } from '../../../../../../shared/store/auth/types/validation-error.interface';
+import { INotification } from '../../../../../../shared/store/auth/types/notification.interface';
 import { User } from '../../../../../../shared/types/models-interfaces';
 
 @Injectable()
@@ -25,8 +25,8 @@ export class UpdateInfoStore extends ComponentStore<UpdateInfoStoreInterface> {
     });
   }
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
-  setMessage = this.updater((state, message: MessageInterface) => ({ ...state, message }));
-  setErrors = this.updater((state, errors: IErrors[]) => ({ ...state, errors }));
+  setMessage = this.updater((state, message: INotification) => ({ ...state, message }));
+  setErrors = this.updater((state, errors: IValidationError[]) => ({ ...state, errors }));
   resetInfoUpdateMessage() {
     this.setMessage({ type: null, message: null });
   }

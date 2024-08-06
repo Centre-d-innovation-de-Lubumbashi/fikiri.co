@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="flex gap-2 flex-col mt-4">
+    <!-- <div class="flex gap-2 flex-col mt-4">
       <app-message
         [message]="vm.userInfoState.message.message"
         [type]="vm.userInfoState.message.type"
@@ -52,10 +52,10 @@
           <i class="bi bi-telephone-inbound h-5 w-5 text-gray-900"></i> {{ user.phone_number }}
         </p>
       </div>
-    </div>
+    </div> -->
 
-    <div class="flex flex-col gap-4" *ngIf="vm.userInfoState.solutions as solutions">
-      <h2 class="mt-4 text-gray-900 font-bold text-lg mb-1">Mes solutions</h2>
+    <!-- <div class="flex flex-col gap-4" *ngIf="vm.userInfoState.solutions as solutions">
+      <h2 class="mt-4 text-gray-900 font-bold text-lg mb-1" *ngIf="solutions.length > 0">Mes solutions</h2>
       @for (solution of solutions; track $index) {
       <a
         [routerLink]="['/solutions', solution.id]"
@@ -65,6 +65,6 @@
         <span class="inline-block group-hover:text-green-400 group-hover:underline">{{ solution.name }}</span>
       </a>
       }
-    </div>
+    </div> -->
   </div>
 </ng-container>

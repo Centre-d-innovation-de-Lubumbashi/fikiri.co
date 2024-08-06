@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 import { UpdatePasswordStoreInterface } from '../types/update-password-store.interface';
 import { PasswordPayloadInterface } from '../types/password-payload.interface';
 import { UpdatePasswordService } from './update-password.service';
-import { IErrors } from '../../../../../../shared/store/auth/types/errors';
-import { MessageInterface } from '../../../../../../shared/store/auth/types/message.interface';
+import { IValidationError } from '../../../../../../shared/store/auth/types/validation-error.interface';
+import { INotification } from '../../../../../../shared/store/auth/types/notification.interface';
 
 @Injectable()
 export class UpdatePasswordStore extends ComponentStore<UpdatePasswordStoreInterface> {
@@ -20,8 +20,8 @@ export class UpdatePasswordStore extends ComponentStore<UpdatePasswordStoreInter
   }
 
   setIsLoading = this.updater((state, isUpdatingImage: boolean) => ({ ...state, isUpdatingImage }));
-  setMessage = this.updater((state, message: MessageInterface) => ({ ...state, message }));
-  setErrors = this.updater((state, errors: IErrors[]) => ({ ...state, errors }));
+  setMessage = this.updater((state, message: INotification) => ({ ...state, message }));
+  setErrors = this.updater((state, errors: IValidationError[]) => ({ ...state, errors }));
   resetUpdateImageMessage() {
     this.setMessage({ type: null, message: null });
   }

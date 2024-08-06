@@ -4,7 +4,7 @@ import { Observable, takeUntil } from 'rxjs';
 import { UpdateInfoStore } from './data-access/update-info.store';
 import { UpdateInfoStoreInterface } from './types/update-info-store.interface';
 import { CommonModule } from '@angular/common';
-import { MessageComponent } from '../../../../../shared/components/message/message.component';
+import { MessageComponent } from '../../../../../shared/components/notification/notification.component';
 import { User } from '../../../../../shared/types/models-interfaces';
 import { ButtonComponent } from '../../../../../shared/ui/button/button.component';
 import { InputComponent } from '../../../../../shared/ui/input/input.component';

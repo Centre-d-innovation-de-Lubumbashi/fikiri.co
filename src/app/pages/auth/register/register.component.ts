@@ -7,7 +7,7 @@ import { RegisterStore } from './data-access/register.store';
 import { RegisterStoreInterface } from './types/register-store.interface';
 import { environment } from '../../../../environments/environment';
 import { FormCardComponent } from '../../../shared/components/form-card/form-card.component';
-import { MessageComponent } from '../../../shared/components/message/message.component';
+import { MessageComponent } from '../../../shared/components/notification/notification.component';
 import { ButtonOutlineComponent } from '../../../shared/ui/button-outline/button-outline.component';
 import { ButtonComponent } from '../../../shared/ui/button/button.component';
 import { InputComponent } from '../../../shared/ui/input/input.component';

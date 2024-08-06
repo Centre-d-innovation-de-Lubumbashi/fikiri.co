@@ -1,4 +1,4 @@
-export interface IErrors {
+export interface IValidationError {
   property: string;
   message: string;
 }

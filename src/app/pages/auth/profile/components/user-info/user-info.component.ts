@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { UserInfoStoreInterface } from './types/user-info-store.interface';
 import { RouterModule } from '@angular/router';
 import { environment } from '../../../../../../environments/environment';
-import { MessageComponent } from '../../../../../shared/components/message/message.component';
+import { MessageComponent } from '../../../../../shared/components/notification/notification.component';
 import { User } from '../../../../../shared/types/models-interfaces';
 import { SpinnerComponent } from '../../../../../shared/ui/spinner/spinner.component';
 
