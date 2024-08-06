@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UpdateInfoComponent } from './components/update-info/update-info.component';
@@ -12,4 +12,10 @@ import { SpinnerComponent } from '../../../shared/ui/spinner/spinner.component';
   templateUrl: './profile.component.html',
   imports: [RouterLink, UserInfoComponent, UpdateInfoComponent, UpdatePasswordComponent, CommonModule, SpinnerComponent]
 })
-export class ProfileComponent {}
+export class ProfileComponent {
+  activeTab: WritableSignal<'profil' | 'solutions'> = signal('profil');
+
+  switchTab() {
+    this.activeTab.update((current) => (current === 'profil' ? 'solutions' : 'profil'));
+  }
+}
