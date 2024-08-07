@@ -25,7 +25,7 @@ export const logoutEffect = createEffect(
       ofType(authActions.logout),
       exhaustMap(() =>
         authService.logout().pipe(
-          map(() => router.navigateByUrl('/login')),
+          map(() => router.navigateByUrl('/auth/login')),
           map(() => authActions.authenticateUser({ user: null })),
           catchError(() => of())
         )
