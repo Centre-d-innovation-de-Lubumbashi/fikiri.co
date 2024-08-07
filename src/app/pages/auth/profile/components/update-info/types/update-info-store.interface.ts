@@ -1,8 +1,6 @@
 import { IValidationError } from '../../../../../../shared/store/auth/types/validation-error.interface';
-import { INotification } from '../../../../../../shared/store/auth/types/notification.interface';
 
-export interface UpdateInfoStoreInterface {
+export interface IUpdateInfoStore {
   isLoading: boolean;
-  message: INotification;
   errors: IValidationError[];
 }

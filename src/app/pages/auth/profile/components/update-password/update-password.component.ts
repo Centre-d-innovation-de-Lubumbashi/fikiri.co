@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { UpdatePasswordStoreInterface } from './types/update-password-store.interface';
+import { IUpdatePasswordStore } from './types/update-password-store.interface';
 import { UpdatePasswordStore } from './data-access/update-password.store';
-import { MessageComponent } from '../../../../../shared/components/notification/notification.component';
 import { ButtonComponent } from '../../../../../shared/ui/button/button.component';
 import { InputComponent } from '../../../../../shared/ui/input/input.component';
 
@@ -13,11 +12,11 @@ import { InputComponent } from '../../../../../shared/ui/input/input.component';
   standalone: true,
   providers: [UpdatePasswordStore],
   templateUrl: './update-password.component.html',
-  imports: [ReactiveFormsModule, CommonModule, InputComponent, ButtonComponent, MessageComponent]
+  imports: [ReactiveFormsModule, CommonModule, InputComponent, ButtonComponent]
 })
 export class UpdatePasswordComponent {
   form: FormGroup;
-  vm$: Observable<UpdatePasswordStoreInterface>;
+  vm$: Observable<IUpdatePasswordStore>;
 
   constructor(private store: UpdatePasswordStore, private formBuilder: FormBuilder) {
     this.vm$ = this.store.vm$;
@@ -26,10 +25,6 @@ export class UpdatePasswordComponent {
       password: ['', Validators.required],
       password_confirm: ['', Validators.required]
     });
-  }
-
-  closePasswordUpdateMessage(): void {
-    this.store.resetUpdateImageMessage();
   }
 
   onSumbit(): void {

@@ -1,5 +1,5 @@
-import { User } from '../../../types/models-interfaces';
+import { IUser } from '../../../types/models-interfaces';
 
 export interface AuthStoreInterface {
-  user: User | null;
+  user: IUser | null;
 }

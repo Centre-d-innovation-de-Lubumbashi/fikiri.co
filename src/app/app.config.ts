@@ -10,6 +10,7 @@ import { provideEffects } from '@ngrx/effects';
 import { authReducers } from './shared/store/auth/data-access/auth.reducers';
 import * as authEffects from './shared/store/auth/data-access/auth.effects';
 import { httpInterceptor } from './shared/interceptors/http.interceptor';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,10 +23,14 @@ export const appConfig: ApplicationConfig = {
     { provide: TitleStrategy, useClass: PageTitleStrategy },
     provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([httpInterceptor])),
-    provideAnimations(),
     provideEffects(authEffects),
     provideStore({
       auth: authReducers
+    }),
+    provideAnimations(),
+    provideToastr({
+      progressBar: true,
+      progressAnimation: 'increasing'
     })
   ]
 };

@@ -4,7 +4,7 @@
       class="navbar fixed w-full top-0 left-0 right-0 translate-y-0 lg:px-20 px-10 py-3 transition-transform duration-300 text-gray-800 bg-white shadow-sm z-20 flex items-center justify-between">
       <a routerLink="/" class="flex items-center gap-3 cursor-pointer" aria-label="logo">
         <img ngSrc="/images/favicon.png" alt="logo" class="cursor-pointer w-8" width="64" height="68" priority />
-        <h1 class="font-bold text-2xl">fikiri<span class="text-blue-500 animate-ping">.</span></h1>
+        <h1 class="font-bold text-2xl">fikiri<span class="text-sky-500 animate-ping">.</span></h1>
       </a>
       <button
         class="flex flex-col cursor-pointer gap-2 lg:hidden"
@@ -18,27 +18,27 @@
         @if (user$ | async; as user) { @for (link of commonLinks; track $index) {
         <a
           [routerLink]="link.path"
-          class="hover:text-blue-500 transition-colors duration-300"
-          routerLinkActive="text-blue-500"
+          class="hover:text-sky-500 transition-colors duration-300"
+          routerLinkActive="text-sky-500"
           [routerLinkActiveOptions]="{ exact: true }">
           {{ link.name }}
         </a>
         }
         <a
           routerLink="/auth/profile"
-          class="hover:text-blue-400 transition-colors duration-300"
-          routerLinkActive="text-blue-500"
+          class="hover:text-sky-400 transition-colors duration-300"
+          routerLinkActive="text-sky-500"
           [routerLinkActiveOptions]="{ exact: true }">
           {{ trimName(user.name) }}
         </a>
-        <button href="" class="hover:text-blue-500 transition-colors duration-300" (click)="logOut()">
+        <button href="" class="hover:text-sky-500 transition-colors duration-300" (click)="logOut()">
           Déconnexion
         </button>
         } @else { @for (link of unAuthenticatedUserLinks; track $index) {
         <a
           [routerLink]="link.path"
-          class="hover:text-blue-400 transition-colors duration-300"
-          routerLinkActive="text-blue-500"
+          class="hover:text-sky-400 transition-colors duration-300"
+          routerLinkActive="text-sky-500"
           [routerLinkActiveOptions]="{ exact: true }">
           {{ link.name }}
         </a>
@@ -53,28 +53,28 @@
         @if (user$ | async; as user) { @for (link of commonLinks; track $index) {
         <a
           [routerLink]="link.path"
-          class="hover:text-blue-500 transition-colors duration-300"
-          routerLinkActive="text-blue-500"
+          class="hover:text-sky-500 transition-colors duration-300"
+          routerLinkActive="text-sky-500"
           [routerLinkActiveOptions]="{ exact: true }">
           {{ link.name }}
         </a>
         }
         <a
           routerLink="/profile"
-          class="hover:text-blue-500 transition-colors duration-300"
-          routerLinkActive="text-blue-500"
+          class="hover:text-sky-500 transition-colors duration-300"
+          routerLinkActive="text-sky-500"
           [routerLinkActiveOptions]="{ exact: true }">
           {{ trimName(user.name) }}
         </a>
 
-        <button href="" class="inline-flex hover:text-blue-500 transition-colors duration-300" (click)="logOut()">
+        <button href="" class="inline-flex hover:text-sky-500 transition-colors duration-300" (click)="logOut()">
           Déconnexion
         </button>
         } @else { @for (link of unAuthenticatedUserLinks; track $index) {
         <a
           [routerLink]="link.path"
-          class="hover:text-blue-500 transition-colors duration-300"
-          routerLinkActive="text-blue-500"
+          class="hover:text-sky-500 transition-colors duration-300"
+          routerLinkActive="text-sky-500"
           [routerLinkActiveOptions]="{ exact: true }">
           {{ link.name }}
         </a>

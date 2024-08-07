@@ -5,7 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { authActions } from '../../store/auth/data-access/auth.actions';
 import { selectUser as selectAuthUser } from '../../store/auth/data-access/auth.reducers';
-import { User } from '../../types/models-interfaces';
+import { IUser } from '../../types/models-interfaces';
 import { LinkInterface } from './types/link.interface';
 import { FormsModule } from '@angular/forms';
 import { AppStoreInterface } from '../../types/app-store.interface';
@@ -17,7 +17,7 @@ import { AppStoreInterface } from '../../types/app-store.interface';
   templateUrl: './topbar.component.html'
 })
 export class TopbarComponent {
-  user$: Observable<User | null>;
+  user$: Observable<IUser | null>;
   isOpen: WritableSignal<boolean> = signal(false);
 
   constructor(private store: Store<AppStoreInterface>, private router: Router) {

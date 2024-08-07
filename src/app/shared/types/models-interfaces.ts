@@ -16,7 +16,7 @@ export interface IRole {
   name: string;
   created_at: Date;
   updated_at: Date;
-  users?: User[];
+  users?: IUser[];
 }
 
 export interface ISolution {
@@ -31,7 +31,7 @@ export interface ISolution {
   call: IEvent;
   status: IStatus;
   thematic: IThematic;
-  user: User;
+  user: IUser;
   challenges: IChallenge[];
   images: IImage[];
 }
@@ -70,7 +70,7 @@ export interface IChallenge {
   thematics: IThematic[];
 }
 
-export interface User {
+export interface IUser {
   id: number;
   email: string;
   name: string;

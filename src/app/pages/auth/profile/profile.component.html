@@ -1,11 +1,15 @@
-<section class="mx-auto max-w-screen-md border-x border-dashed">
-  <div class="px-8 pt-20 mb-8 border-r">
-    <app-user-info />
-    <div class="mt-12 inline-flex items-center gap-6 text-sm font-medium">
-      <button (click)="switchTab()" class="py-1.5 {{ activeTab() === 'profil' && 'border-b-2 border-blue-600' }}">
+<section class="mx-auto max-w-screen-lg">
+  <div class="px-8 pt-20 mb-8">
+    <app-info />
+    <div class="mt-12 flex items-center gap-6 text-sm font-medium border-b">
+      <button
+        (click)="switchTab()"
+        class="py-2 {{ activeTab() === 'profil' && 'border-b-2 border-sky-600 text-sky-500' }}">
         Mes informations
       </button>
-      <button (click)="switchTab()" class="py-1.5 {{ activeTab() === 'solutions' && 'border-b-2 border-blue-600' }}">
+      <button
+        (click)="switchTab()"
+        class="py-2 {{ activeTab() === 'solutions' && 'border-b-2 border-sky-600 text-sky-500' }}">
         Mes solutions
       </button>
     </div>
@@ -14,6 +18,8 @@
       <app-update-info />
       <app-update-password />
     </div>
+    } @if (activeTab() === 'solutions') {
+    <app-solutions />
     }
   </div>
 </section>

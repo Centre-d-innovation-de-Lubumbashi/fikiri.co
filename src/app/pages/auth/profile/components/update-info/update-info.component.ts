@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable, takeUntil } from 'rxjs';
 import { UpdateInfoStore } from './data-access/update-info.store';
-import { UpdateInfoStoreInterface } from './types/update-info-store.interface';
+import { IUpdateInfoStore } from './types/update-info-store.interface';
 import { CommonModule } from '@angular/common';
-import { MessageComponent } from '../../../../../shared/components/notification/notification.component';
-import { User } from '../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../shared/types/models-interfaces';
 import { ButtonComponent } from '../../../../../shared/ui/button/button.component';
 import { InputComponent } from '../../../../../shared/ui/input/input.component';
 
@@ -14,11 +13,11 @@ import { InputComponent } from '../../../../../shared/ui/input/input.component';
   standalone: true,
   providers: [UpdateInfoStore],
   templateUrl: './update-info.component.html',
-  imports: [ReactiveFormsModule, CommonModule, InputComponent, ButtonComponent, MessageComponent]
+  imports: [ReactiveFormsModule, CommonModule, InputComponent, ButtonComponent]
 })
 export class UpdateInfoComponent implements OnInit {
   form: FormGroup;
-  vm$: Observable<{ udpateInfoState: UpdateInfoStoreInterface; user: User | null }>;
+  vm$: Observable<{ udpateInfoState: IUpdateInfoStore; user: IUser | null }>;
 
   constructor(private store: UpdateInfoStore, private formBuilder: FormBuilder) {
     this.vm$ = this.store.vm$;
@@ -41,9 +40,5 @@ export class UpdateInfoComponent implements OnInit {
 
   onSubmit(): void {
     this.store.upatedProfile(this.form.value);
-  }
-
-  closeUpdateInfoMessage(): void {
-    this.store.resetInfoUpdateMessage();
   }
 }

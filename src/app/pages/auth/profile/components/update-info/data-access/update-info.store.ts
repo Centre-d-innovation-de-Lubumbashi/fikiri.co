@@ -5,45 +5,41 @@ import { tapResponse } from '@ngrx/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UpdateInfoService } from './update-info.service';
-import { InfoPayloadInterface } from '../types/update-info-payload.interface';
-import { UpdateInfoStoreInterface } from '../types/update-info-store.interface';
+import { IUpdateInfoPayload } from '../types/update-info-payload.interface';
+import { IUpdateInfoStore } from '../types/update-info-store.interface';
 import { authActions } from '../../../../../../shared/store/auth/data-access/auth.actions';
 import { selectUser } from '../../../../../../shared/store/auth/data-access/auth.reducers';
 import { IValidationError } from '../../../../../../shared/store/auth/types/validation-error.interface';
-import { INotification } from '../../../../../../shared/store/auth/types/notification.interface';
-import { User } from '../../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../../shared/types/models-interfaces';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
-export class UpdateInfoStore extends ComponentStore<UpdateInfoStoreInterface> {
-  vm$: Observable<{ udpateInfoState: UpdateInfoStoreInterface; user: User | null }>;
+export class UpdateInfoStore extends ComponentStore<IUpdateInfoStore> {
+  vm$: Observable<{ udpateInfoState: IUpdateInfoStore; user: IUser | null }>;
 
-  constructor(private updateInfoService: UpdateInfoService, private store: Store) {
-    super({ isLoading: false, message: { type: null, message: null }, errors: [] });
+  constructor(private updateInfoService: UpdateInfoService, private store: Store, private toast: ToastrService) {
+    super({ isLoading: false, errors: [] });
     this.vm$ = this.select({
       udpateInfoState: this.select((state) => state),
       user: this.store.select(selectUser)
     });
   }
   setIsLoading = this.updater((state, isLoading: boolean) => ({ ...state, isLoading }));
-  setMessage = this.updater((state, message: INotification) => ({ ...state, message }));
   setErrors = this.updater((state, errors: IValidationError[]) => ({ ...state, errors }));
-  resetInfoUpdateMessage() {
-    this.setMessage({ type: null, message: null });
-  }
 
-  upatedProfile = this.effect((payload$: Observable<InfoPayloadInterface>) =>
+  upatedProfile = this.effect((payload$: Observable<IUpdateInfoPayload>) =>
     payload$.pipe(
       tap(() => this.setIsLoading(true)),
       exhaustMap((payload) =>
         this.updateInfoService.updateProfile(payload).pipe(
           tapResponse({
             next: (user) => {
-              this.setMessage({ type: 'success', message: 'Informations mises à jour' });
+              this.toast.success('Informations mises à jour');
               this.store.dispatch(authActions.authenticateUser({ user }));
             },
             error: (error: HttpErrorResponse) => {
               const message = error.error.message;
-              if (typeof message === 'string') return this.setMessage({ type: 'error', message });
+              if (typeof message === 'string') return this.toast.error(message);
               return this.setErrors(error.error.message);
             },
             finalize: () => this.setIsLoading(false)

@@ -1,27 +1,27 @@
-<a [routerLink]="['/solutions', solution.id]" class="flex flex-col">
-  <div class="w-auto h-44 lg:h-36 mb-2 bject-cover relative aspect-video">
-    @if (solution.images.length > 0) {
-    <img [ngSrc]="displayImage(solution)" class="rounded-md object-cover" alt="solution image" fill />
+<a [routerLink]="['/solutions', solution().id]" class="flex flex-col">
+  <div class="w-auto h-44 lg:h-36 mb-2 bject-cover relative aspect-video bg-gray-300">
+    @if (solution().images.length > 0) {
+    <img [ngSrc]="displayImage(solution())" class="rounded-md object-cover" alt="solution image" fill />
     } @else {
     <img ngSrc="/images/default-placeholder.png" class="rounded-md object-cover" alt="solution image" fill />
     }
   </div>
   <div class="flex gap-3 items-center">
     <div class="w-10 h-10 bg-gray-200 relative rounded-full overflow-hidden flex items-center justify-center">
-      @if (solution.user.profile) {
+      @if (solution().user.profile) {
       <img
-        [ngSrc]="displayProfileImage(solution.user) || '/images/default-placeholder.png'"
+        [ngSrc]="displayProfileImage(solution().user) || '/images/default-placeholder.png'"
         alt="profile picture"
         fill />
       } @else {
       <p class="text-sm text-gray-800 font-medium">
-        {{ username(solution.user) }}
+        {{ username(solution().user) }}
       </p>
       }
     </div>
     <div class="text-gray-950 font-medium text-sm flex flex-col capitalize">
-      <p class="capitalize">{{ splitUsername(solution.user) }}</p>
-      <p class="inline-block text-gray-500 font-normal">{{ solution.created_at | date : 'longDate' }}</p>
+      <p class="capitalize">{{ splitUsername(solution().user) }}</p>
+      <p class="inline-block text-gray-500 font-normal">{{ solution().created_at | date : 'longDate' }}</p>
     </div>
   </div>
 </a>
