@@ -1,7 +1,7 @@
 import { map, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { IUpdateInfoPayload } from '../types/update-info-payload.interface';
-import { IUser } from '../../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../../shared/types/models.interfaces';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

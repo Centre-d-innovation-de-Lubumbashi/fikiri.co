@@ -51,8 +51,4 @@ export class LoginComponent {
   loginWithGoogle(): void {
     window.location.replace(`${this.apiUrl}auth/google/redirect`);
   }
-
-  closeMessage(): void {
-    this.store.resetError();
-  }
 }

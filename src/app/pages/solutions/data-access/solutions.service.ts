@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { SolutionsReponseInterface } from '../types/solutions-response.interface';
-import { IEvent, IThematic } from '../../../shared/types/models-interfaces';
+import { IEvent, IThematic } from '../../../shared/types/models.interfaces';
 import { QueryParams } from '../types/query-params.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SearchResponseInterface } from '../types/search-response.interface';

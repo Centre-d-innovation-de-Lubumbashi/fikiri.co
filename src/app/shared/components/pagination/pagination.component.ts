@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -8,15 +8,9 @@ import { Component, Input, output } from '@angular/core';
   templateUrl: './pagination.component.html'
 })
 export class PaginationComponent {
-  @Input()
-  disablePrev: boolean | undefined = false;
-
-  @Input()
-  disableNext: boolean | undefined = false;
-
-  @Input()
-  type: 'default' | 'withLabel' = 'default';
-
+  disablePrev = input<boolean>(false);
+  disableNext = input(false);
+  type = input<'default' | 'withLabel'>('default');
   handlePrevClick = output<void>();
   handleNexClick = output<void>();
 

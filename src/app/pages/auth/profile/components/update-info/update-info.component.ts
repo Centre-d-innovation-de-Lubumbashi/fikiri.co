@@ -4,7 +4,7 @@ import { Observable, takeUntil } from 'rxjs';
 import { UpdateInfoStore } from './data-access/update-info.store';
 import { IUpdateInfoStore } from './types/update-info-store.interface';
 import { CommonModule } from '@angular/common';
-import { IUser } from '../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../shared/types/models.interfaces';
 import { ButtonComponent } from '../../../../../shared/ui/button/button.component';
 import { InputComponent } from '../../../../../shared/ui/input/input.component';
 

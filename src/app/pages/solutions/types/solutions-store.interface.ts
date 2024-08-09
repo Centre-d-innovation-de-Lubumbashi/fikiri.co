@@ -1,4 +1,4 @@
-import { IEvent, ISolution, IThematic } from '../../../shared/types/models-interfaces';
+import { IEvent, ISolution, IThematic } from '../../../shared/types/models.interfaces';
 import { SearchResponseInterface } from './search-response.interface';
 
 export interface SolutionsStoreInterface {

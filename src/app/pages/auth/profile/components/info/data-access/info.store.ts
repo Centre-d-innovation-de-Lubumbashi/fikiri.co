@@ -8,7 +8,7 @@ import { InfoService } from './info.service';
 import { Injectable } from '@angular/core';
 import { authActions } from '../../../../../../shared/store/auth/data-access/auth.actions';
 import { selectUser } from '../../../../../../shared/store/auth/data-access/auth.reducers';
-import { IUser } from '../../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../../shared/types/models.interfaces';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable()

@@ -24,6 +24,11 @@ export const authRoutes: Routes = [
     loadComponent: () => import('./reset-password/reset-password.component').then((c) => c.ResetPasswordComponent)
   },
   {
+    path: 'edit-solution/:id',
+    title: 'Modifier la solution',
+    loadComponent: () => import('./edit-solution/edit-solution.component').then((c) => c.EditSolutionComponent)
+  },
+  {
     path: 'profile',
     title: 'Profil',
     loadComponent: () => import('./profile/profile.component').then((c) => c.ProfileComponent),

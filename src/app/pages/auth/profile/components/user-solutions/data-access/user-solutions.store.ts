@@ -3,10 +3,10 @@ import { Observable, exhaustMap, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { tapResponse } from '@ngrx/operators';
 import { Injectable } from '@angular/core';
-import { ISolution } from '../../../../../../shared/types/models-interfaces';
+import { ISolution } from '../../../../../../shared/types/models.interfaces';
 import { ToastrService } from 'ngx-toastr';
-import { ISolutionsStore } from '../types/solutions-store.type';
-import { SolutionsService } from './solutions.service';
+import { ISolutionsStore } from '../types/user-solutions-store.type';
+import { SolutionsService } from './user-solutions.service';
 
 @Injectable()
 export class SolutionsStore extends ComponentStore<ISolutionsStore> {

@@ -8,7 +8,7 @@ import { SolutionService } from './data-access/solution.service';
 import { environment } from '../../../environments/environment';
 import { PaginationComponent } from '../../shared/components/pagination/pagination.component';
 import { ConvertToLowercasePipe } from '../../shared/pipes/convert-to-lowercase.pipe';
-import { IImage, IUser } from '../../shared/types/models-interfaces';
+import { IImage, IUser } from '../../shared/types/models.interfaces';
 import { SpinnerComponent } from '../../shared/ui/spinner/spinner.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 

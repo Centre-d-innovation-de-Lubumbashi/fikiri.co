@@ -5,7 +5,7 @@ import { eventsService } from './events.service';
 import { exhaustMap, Observable, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { tapResponse } from '@ngrx/operators';
-import { IEvent } from '../../../../../shared/types/models-interfaces';
+import { IEvent } from '../../../../../shared/types/models.interfaces';
 
 @Injectable()
 export class eventsStore extends ComponentStore<EventsStoreInterface> {

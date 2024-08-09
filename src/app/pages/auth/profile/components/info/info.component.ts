@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { IUserInfoStore } from './types/info-store.interface';
 import { RouterModule } from '@angular/router';
 import { environment } from '../../../../../../environments/environment';
-import { IUser } from '../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../shared/types/models.interfaces';
 import { SpinnerComponent } from '../../../../../shared/ui/spinner/spinner.component';
 
 @Component({

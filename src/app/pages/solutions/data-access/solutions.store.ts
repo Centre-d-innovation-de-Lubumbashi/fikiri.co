@@ -4,7 +4,7 @@ import { tapResponse } from '@ngrx/operators';
 import { SolutionsStoreInterface } from '../types/solutions-store.interface';
 import { exhaustMap, Observable, tap } from 'rxjs';
 import { SolutionsService } from './solutions.service';
-import { IEvent, ISolution, IThematic } from '../../../shared/types/models-interfaces';
+import { IEvent, ISolution, IThematic } from '../../../shared/types/models.interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SolutionsReponseInterface } from '../types/solutions-response.interface';
 import { QueryParams } from '../types/query-params.interface';

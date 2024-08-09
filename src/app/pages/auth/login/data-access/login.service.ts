@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginPayloadInterface } from '../types/login-payload.interface';
 import { map, Observable } from 'rxjs';
-import { IUser } from '../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../shared/types/models.interfaces';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

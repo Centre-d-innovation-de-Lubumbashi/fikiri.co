@@ -5,7 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { authActions } from '../../store/auth/data-access/auth.actions';
 import { selectUser as selectAuthUser } from '../../store/auth/data-access/auth.reducers';
-import { IUser } from '../../types/models-interfaces';
+import { IUser } from '../../types/models.interfaces';
 import { LinkInterface } from './types/link.interface';
 import { FormsModule } from '@angular/forms';
 import { AppStoreInterface } from '../../types/app-store.interface';

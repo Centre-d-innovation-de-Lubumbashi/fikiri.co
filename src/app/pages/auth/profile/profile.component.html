@@ -3,12 +3,12 @@
     <app-info />
     <div class="mt-12 flex items-center gap-6 text-sm font-medium border-b">
       <button
-        (click)="switchTab()"
+        (click)="switchTab('profil')"
         class="py-2 {{ activeTab() === 'profil' && 'border-b-2 border-sky-600 text-sky-500' }}">
         Mes informations
       </button>
       <button
-        (click)="switchTab()"
+        (click)="switchTab('solutions')"
         class="py-2 {{ activeTab() === 'solutions' && 'border-b-2 border-sky-600 text-sky-500' }}">
         Mes solutions
       </button>
@@ -19,7 +19,7 @@
       <app-update-password />
     </div>
     } @if (activeTab() === 'solutions') {
-    <app-solutions />
+    <app-user-solutions />
     }
   </div>
 </section>

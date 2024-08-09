@@ -7,10 +7,12 @@ import { SolutionResponseInterface } from '../types/solution-response.interface'
 import { HttpErrorResponse } from '@angular/common/http';
 import { SolutionService } from './solution.service';
 import { Store } from '@ngrx/store';
-import { IUser } from '../../../shared/types/models-interfaces';
+import { IUser } from '../../../shared/types/models.interfaces';
 import { selectUser } from '../../../shared/store/auth/data-access/auth.reducers';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SolutionStore extends ComponentStore<SolutionStoreInterface> {
   vm$: Observable<{ solutionStore: SolutionStoreInterface; user: IUser | null }>;
 

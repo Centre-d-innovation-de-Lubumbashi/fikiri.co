@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ISolution, IUser } from '../../types/models-interfaces';
+import { ISolution, IUser } from '../../types/models.interfaces';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -15,11 +15,6 @@ export class SolutionCardComponent {
 
   displayImage(solution: ISolution): string {
     return `${environment.apiUrl}/uploads/solutions/${solution.images.at(-1)?.image_link}`;
-  }
-
-  username(user: IUser | null): string {
-    if (!user) return '';
-    return user.name.slice(0, 2).toUpperCase();
   }
 
   displayProfileImage(user: IUser): string {

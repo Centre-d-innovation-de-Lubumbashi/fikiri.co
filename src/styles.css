@@ -6,10 +6,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  ::-webkit-scrollbar {
-    @apply w-2 bg-blue-400/30;
-  }
-
   .nav-open div:first-child {
     @apply rotate-45 translate-y-1.5;
   }
@@ -23,21 +19,17 @@
   }
 
   em {
-    @apply not-italic text-gray-950 bg-green-200/60;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-blue-400/70 w-2 rounded-md;
+    @apply not-italic text-white bg-sky-900;
   }
 
   .pg .ngx-pagination .current {
-    @apply bg-blue-500 bg-opacity-70 rounded-sm m-0 px-2 py-0.5;
+    @apply bg-sky-600 bg-opacity-70 text-white rounded-sm m-0 px-2 py-0.5;
   }
   .pg .ngx-pagination a {
     @apply bg-gray-200/40 text-gray-700 mx-1 shadow-sm shadow-gray-300 bg-opacity-70 rounded-sm m-0 px-2 py-0.5;
   }
 
   .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
-    @apply border-blue-400;
+    @apply border-sky-500;
   }
 }

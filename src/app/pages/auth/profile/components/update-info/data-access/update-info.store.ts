@@ -10,7 +10,7 @@ import { IUpdateInfoStore } from '../types/update-info-store.interface';
 import { authActions } from '../../../../../../shared/store/auth/data-access/auth.actions';
 import { selectUser } from '../../../../../../shared/store/auth/data-access/auth.reducers';
 import { IValidationError } from '../../../../../../shared/store/auth/types/validation-error.interface';
-import { IUser } from '../../../../../../shared/types/models-interfaces';
+import { IUser } from '../../../../../../shared/types/models.interfaces';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable()

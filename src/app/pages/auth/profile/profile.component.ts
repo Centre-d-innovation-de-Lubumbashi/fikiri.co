@@ -5,7 +5,7 @@ import { UpdateInfoComponent } from './components/update-info/update-info.compon
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../../../shared/ui/spinner/spinner.component';
-import { SolutionsComponent } from './components/solutions/solutions.component';
+import { UserSolutionsComponent } from './components/user-solutions/user-solutions.component';
 
 @Component({
   selector: 'app-profile',
@@ -18,13 +18,13 @@ import { SolutionsComponent } from './components/solutions/solutions.component';
     UpdatePasswordComponent,
     CommonModule,
     SpinnerComponent,
-    SolutionsComponent
+    UserSolutionsComponent
   ]
 })
 export class ProfileComponent {
-  activeTab: WritableSignal<'profil' | 'solutions'> = signal('profil');
+  activeTab: WritableSignal<'profil' | 'solutions'> = signal('solutions');
 
-  switchTab() {
-    this.activeTab.update((current) => (current === 'profil' ? 'solutions' : 'profil'));
+  switchTab(tab: 'profil' | 'solutions'): void {
+    this.activeTab.set(tab);
   }
 }

@@ -5,7 +5,7 @@ import { exhaustMap, Observable, tap } from 'rxjs';
 import { WinningSolutionsService } from './winning-solutions.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { tapResponse } from '@ngrx/operators';
-import { ISolution } from '../../../../../shared/types/models-interfaces';
+import { ISolution } from '../../../../../shared/types/models.interfaces';
 
 @Injectable()
 export class WinningSolutionsStore extends ComponentStore<WinningSolutionsStoreInterface> {

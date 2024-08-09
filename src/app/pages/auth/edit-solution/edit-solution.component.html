@@ -1,0 +1,46 @@
+<section class="mx-auto max-w-screen-md" *ngIf="vm$ | async as vm">
+  <div class="px-8 pt-20 mb-8" *ngIf="vm.solutionStore.solutionResponse?.solution as solution">
+    <div class="flex items-start gap-6">
+      <div class="relative h-20 w-24 rounded-sm">
+        <img [ngSrc]="displayImage(solution)" [alt]="solution.name" class="rounded-sm object-cover" fill />
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <h6 class="font-medium text-sky-400">{{ solution.name }}</h6>
+        <p class="text-sm font-semibold">{{ solution.created_at | date : 'longDate' }}</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-x-3 mt-10 gap-y-6 md:grid-cols-4">
+      @for (img of solution.images; track $index) {
+      <div class="relative h-36 rounded-sm bg-gray-300">
+        <img [ngSrc]="displayImg(img.image_link)" [alt]="solution.name" class="rounded-sm object-cover" fill />
+      </div>
+      }
+    </div>
+
+    <div class="border border-dashed bg-gray-50 p-6 flex rounded-md flex-col items-center justify-center h-32 mt-6">
+      <button class="flex items-center gap-2 font-medium text-sky-400" (click)="file.click()">
+        <i class="bi bi-plus text-sky-600"></i>
+        Ajouter une image
+        <input
+          id="thumb"
+          name="thumb"
+          type="file"
+          class="hidden"
+          accept="image/*"
+          (change)="onImageChange($event, solution.id)"
+          #file />
+      </button>
+    </div>
+
+    <div class="mt-10">
+      <h6 class="font-medium text-sky-400">Description</h6>
+      <p class="mt-4">{{ solution.description }}</p>
+    </div>
+
+    <div class="mt-10">
+      <h6 class="font-medium text-sky-400">Probleme resolu</h6>
+      <p class="mt-4">{{ solution.targeted_problem }}</p>
+    </div>
+  </div>
+</section>

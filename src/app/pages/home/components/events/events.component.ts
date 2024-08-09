@@ -5,7 +5,7 @@ import { EventsStoreInterface } from './types/events-store.interface';
 import { AsyncPipe, DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage, SlicePipe } from '@angular/common';
 import { environment } from '../../../../../environments/environment';
 import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
-import { IImage } from '../../../../shared/types/models-interfaces';
+import { IImage } from '../../../../shared/types/models.interfaces';
 
 @Component({
   selector: 'app-calls',

@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { SolutionResponseInterface } from '../types/solution-response.interface';
 import { HttpClient } from '@angular/common/http';
-import { ISolution } from '../../../shared/types/models-interfaces';
+import { ISolution } from '../../../shared/types/models.interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SolutionService {
   constructor(private http: HttpClient) {}
 

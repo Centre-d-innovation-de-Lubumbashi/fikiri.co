@@ -26,21 +26,6 @@
         (handlePrevClick)="prevImage()"
         (handleNexClick)="nextImage(solution.images)" />
       } }
-      <button
-        type="button"
-        (click)="file.click()"
-        class="absolute bg-green-300 rounded-full shadow-lg -bottom-4 flex items-center h-14 w-14 justify-center -right-4"
-        *ngIf="solution.user.id === vm.user?.id">
-        <i class="bi bi-camera inline-block font-black h-7 w-7"></i>
-        <input
-          id="thumb"
-          name="thumb"
-          type="file"
-          class="hidden"
-          accept="image/*"
-          (change)="onImageChange($event, solution.id)"
-          #file />
-      </button>
     </div>
 
     <div class="p-4">
