@@ -1,0 +1,18 @@
+html {
+  @apply scroll-smooth hyphens-auto;
+}
+
+::selection {
+  @apply text-white bg-primary-600;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-900/70 w-1 rounded-md;
+}
+
+.pg .ngx-pagination .current {
+  @apply bg-primary-500 bg-opacity-70 rounded-sm m-0 px-2 py-0.5;
+}
+.pg .ngx-pagination a {
+  @apply bg-gray-200/40 text-gray-700 mx-1 shadow-sm shadow-gray-300 bg-opacity-70 rounded-sm m-0 px-2 py-0.5;
+}

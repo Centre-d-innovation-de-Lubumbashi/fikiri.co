@@ -1,0 +1,50 @@
+<ng-container *ngIf="solution$ | async as result">
+  <div class="flex flex-col mx-6 justify-center max-w-screen-md md:mx-auto border-x border-dashed">
+    @if (result.data.solution; as solution) {
+      @if (solution && solution.name) {
+        <h2 class="font-semibold text-gray-800 text-2xl mb-2 p-3 pt-24 first-letter:capitalize">
+          {{ solution.name }}, {{ solution.created_at | date: 'longDate' }}
+        </h2>
+      }
+      <div class="relative mb-4 h-auto w-full aspect-video">
+        <img
+          ngSrc="assets/images/default-placeholder.png"
+          alt="hero"
+          class="object-cover transition-opacity duration-300"
+          fill />
+      </div>
+
+      <div class="p-4">
+        <p class="mb-4">Ajouté le {{ solution.created_at | date: 'longDate' }}</p>
+        <p class="mb-6 hyphens-auto first-letter:capitalize">{{ solution.description }}</p>
+        <h2 class="font-semibold text-gray-800 text-2xl mb-2">Problème résolu</h2>
+        <p class="mb-6 hyphens-auto first-letter:capitalize">
+          {{ solution.targeted_problem }}
+        </p>
+        <h2 class="font-semibold text-2xl mb-2">Innovateur</h2>
+        <p class="">{{ solution.user.name }} &mdash; {{ solution.user.email }}</p>
+        <p class="mt-6">
+          {{ solution.thematic.name }}
+        </p>
+        <div class="mb-6">
+          @for (challenge of solution.challenges; track challenge.id) {
+            <p class="mr-2">&mdash; {{ challenge.name }}</p>
+          }
+        </div>
+      </div>
+    }
+    @if (result.isLoading) {
+      <div class="h-screen flex flex-col items-center gap-4 justify-center">
+        <mat-spinner class="icon-size-10" />
+        En cours de chargement...
+      </div>
+    }
+    @if (!result.isLoading && !result.data.solution) {
+      <div class="h-screen flex flex-col items-center gap-4 justtify-center">
+        <h4>Aucune solution trouvé</h4>
+        <p class="text-4xl font-bondiMono font-black">404</p>
+        <a routerLink="/solutions" class="text-base inline-block text-blue-400">Voir toutes les solutions</a>
+      </div>
+    }
+  </div>
+</ng-container>
