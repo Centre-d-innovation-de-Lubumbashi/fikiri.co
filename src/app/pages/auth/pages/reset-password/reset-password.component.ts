@@ -5,11 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Animations } from '@core/animations';
 import { AlertComponent } from '@core/components/alert';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../../../../@core/auth/auth.service';
 import { MutationResult } from '@ngneat/query';
 import { IUser } from '@core/types/models.type';
 import { AuthCardComponent } from '../../components/auth-card/auth-card.component';
@@ -35,7 +35,6 @@ import { AuthCardComponent } from '../../components/auth-card/auth-card.componen
   ]
 })
 export class AuthResetPasswordComponent {
-  #token = inject(ActivatedRoute).snapshot.queryParams['token'];
   #formBuilder = inject(FormBuilder);
   #authService = inject(AuthService);
   resetPasswordForm: FormGroup;
@@ -43,6 +42,7 @@ export class AuthResetPasswordComponent {
 
   constructor() {
     this.resetPasswordForm = this.#formBuilder.group({
+      token: ['', Validators.required],
       password: ['', Validators.required],
       password_confirm: ['', Validators.required]
     });
@@ -52,9 +52,7 @@ export class AuthResetPasswordComponent {
   onResetPassword(): void {
     if (this.resetPasswordForm.invalid) return;
     this.resetPasswordForm.disable();
-    const { password, password_confirm } = this.resetPasswordForm.value;
-    const payload = { token: this.#token, password, password_confirm };
-    this.resetPassword.mutate(payload);
+    this.resetPassword.mutate(this.resetPasswordForm.value);
     this.resetPasswordForm.enable();
   }
 }

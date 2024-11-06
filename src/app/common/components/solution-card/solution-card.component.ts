@@ -1,28 +1,15 @@
 import { Component, input } from '@angular/core';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { environment } from 'environments/environment';
-import { ISolution, IUser } from '../../../../@core/types/models.type';
+import { ISolution } from '@core/types/models.type';
+import { ImgPipe } from '@core/pipes/img.pipe';
 
 @Component({
   selector: 'app-solution-card',
   standalone: true,
-  imports: [NgOptimizedImage, RouterLink, DatePipe],
+  imports: [NgOptimizedImage, RouterLink, DatePipe, ImgPipe],
   templateUrl: './solution-card.component.html'
 })
 export class SolutionCardComponent {
   solution = input.required<ISolution>();
-
-  displayImage(solution: ISolution): string {
-    return `${environment.apiUrl}/uploads/solutions/${solution.images.at(-1)?.image_link}`;
-  }
-
-  displayProfileImage(user: IUser): string {
-    return `${environment.apiUrl}/uploads/profiles/${user.profile}`;
-  }
-
-  splitUsername(user: IUser): string {
-    const name = user.name.split(' ');
-    return name[0].toLocaleLowerCase() + ' ' + (name[1] ? name[1].toLocaleLowerCase() : '');
-  }
 }

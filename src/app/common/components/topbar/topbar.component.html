@@ -1,0 +1,87 @@
+<header class="relative h-full text-sm font-medium">
+  <nav [ngClass]="isOpen() ? 'lg:static fixed inset-0 bg-white/75 z-10' : ''">
+    <ul
+      class="navbar fixed w-full top-0 px-10 lg:px-20 py-3 transition-transform duration-300 text-gray-800 bg-white shadow-sm z-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center gap-3 cursor-pointer" aria-label="logo">
+        <img ngSrc="/images/favicon.png" alt="logo" class="w-8 cursor-pointer" width="64" height="68" priority />
+        <h1 class="font-bold text-2xl">fikiri<span class="text-sky-500 animate-ping">.</span></h1>
+      </a>
+
+      <!-- Toggle Button for Mobile -->
+      <button
+        class="flex flex-col gap-2 lg:hidden cursor-pointer"
+        [ngClass]="isOpen() ? 'nav-open' : ''"
+        (click)="toogleMenu()">
+        <div class="h-[1px] w-6 bg-current transition-transform duration-300"></div>
+        <div class="h-[1px] w-6 bg-current transition-transform duration-300"></div>
+      </button>
+
+      <!-- Desktop Navbar Links -->
+      <div class="hidden lg:flex gap-5">
+        @for (link of commonLinks; track $index) {
+          <a
+            [routerLink]="link.path"
+            class="hover:text-sky-500 transition-colors duration-300"
+            routerLinkActive="text-sky-500"
+            [routerLinkActiveOptions]="{ exact: link.exact }">
+            {{ link.name }}
+          </a>
+        }
+
+        <ng-container *ngIf="!user; else authLinksTemplate">
+          @for (link of authLinks; track $index) {
+            <a
+              [routerLink]="link.path"
+              class="hover:text-sky-500 transition-colors duration-300"
+              routerLinkActive="text-sky-500"
+              [routerLinkActiveOptions]="{ exact: link.exact }">
+              {{ link.name }}
+            </a>
+          }
+        </ng-container>
+      </div>
+    </ul>
+
+    <!-- Mobile Navbar Links -->
+    <div
+      class="lg:hidden fixed top-14 left-0 right-16 bottom-0 bg-white backdrop-blur-lg z-40 transition-transform duration-300"
+      [ngClass]="isOpen() ? 'translate-x-0' : '-translate-x-full'">
+      <div class="flex flex-col gap-5 p-20 py-40">
+        @for (link of commonLinks; track $index) {
+          <a
+            [routerLink]="link.path"
+            class="hover:text-sky-500 transition-colors duration-300"
+            routerLinkActive="text-sky-500"
+            [routerLinkActiveOptions]="{ exact: link.exact }">
+            {{ link.name }}
+          </a>
+        }
+
+        <ng-container *ngIf="!user; else authLinksTemplate">
+          @for (link of authLinks; track $index) {
+            <a
+              [routerLink]="link.path"
+              class="hover:text-sky-500 transition-colors duration-300"
+              routerLinkActive="text-sky-500"
+              [routerLinkActiveOptions]="{ exact: link.exact }">
+              {{ link.name }}
+            </a>
+          }
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Auth Links Template -->
+    <ng-template #authLinksTemplate>
+      <a
+        routerLink="/auth/profile"
+        class="hover:text-sky-400 transition-colors duration-300"
+        routerLinkActive="text-sky-500"
+        [routerLinkActiveOptions]="{ exact: true }">
+        {{ trimName(user.name) }}
+      </a>
+      <button (click)="singOut()" class="hover:text-sky-500 transition-colors duration-300">Déconnexion</button>
+    </ng-template>
+  </nav>
+</header>

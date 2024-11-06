@@ -1,15 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { AsyncPipe, DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage, SlicePipe } from '@angular/common';
-import { environment } from 'environments/environment';
+import { CommonModule, DatePipe, NgOptimizedImage } from '@angular/common';
 import { EventsService } from './events.service';
-import { IEvent, IImage } from '@core/types/models.type';
+import { IEvent } from '@core/types/models.type';
 import { ObservableQueryResult } from '@ngneat/query';
+import { ImgPipe } from '@core/pipes/img.pipe';
 
 @Component({
   selector: 'app-events',
   standalone: true,
   templateUrl: './events.component.html',
-  imports: [NgIf, AsyncPipe, SlicePipe, NgForOf, DatePipe, NgClass, NgOptimizedImage]
+  imports: [CommonModule, DatePipe, NgOptimizedImage, ImgPipe]
 })
 export class EventsComponent implements OnInit {
   events$: ObservableQueryResult<IEvent[], Error>;
@@ -17,9 +17,5 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.events$ = this.#eventsServive.getEvents();
-  }
-
-  displayImage(image: IImage): string {
-    return `${environment.apiUrl}uploads/events/${image.image_link}`;
   }
 }

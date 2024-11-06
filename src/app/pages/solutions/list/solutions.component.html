@@ -13,7 +13,6 @@
           [value]="queryParams.event"
           (selectionChange)="onFilterChange($event, 'event')"
           placeholder="Filtrez par appel">
-          <mat-option [value]="'all'">Tous</mat-option>
           @if (eventsResult.data; as events) {
             @for (event of events; track $index) {
               <mat-option [value]="event.id">{{ event.name }}</mat-option>

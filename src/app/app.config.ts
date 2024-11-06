@@ -10,10 +10,9 @@ import { httpInterceptor } from '../@core/interceptors/http.interceptor';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { provideIcons } from '@core/services/icons/icons.provider';
-import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
-import { authReducers } from '@core/store/auth/auth.reducers';
-import { AuthEffects } from '../@core/store/auth/auth.effects';
+import { authReducers } from '@core/auth/auth.reducers';
+import { provideAuth } from '../@core/auth/auth.provider';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -26,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     { provide: LOCALE_ID, useValue: 'fr' },
     provideHttpClient(withFetch(), withInterceptors([httpInterceptor])),
     provideRouter(appRoutes, withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })),
-    provideEffects(AuthEffects),
+    provideAuth(),
     provideStore({
       auth: authReducers
     }),

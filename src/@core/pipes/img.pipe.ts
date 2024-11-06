@@ -6,15 +6,19 @@ import { environment } from 'environments/environment';
   name: 'apiIMG'
 })
 export class ImgPipe implements PipeTransform {
-  transform(value: object): string {
-    if ('profile' in value) {
-      return value['profile']
-        ? `${environment.apiUrl}uploads/profiles/${value['profile']}`
-        : (value['google_image'] ?? 'https://placehold.co/620x700');
+  transform(value: object, key: string): string {
+    const apiUrl = environment.apiUrl;
+    const defaultImage = '/images/default-placeholder.png';
+
+    switch (key) {
+      case 'user':
+        return value['profile'] ? `${apiUrl}uploads/profiles/${value['profile']}` : '/images/avatar-default.webp';
+      case 'solution':
+        return value['images'] ? `${apiUrl}uploads/solutions/${value['images'].at(-1)['image_link']}` : defaultImage;
+      case 'event':
+        return value['images'] ? `${apiUrl}uploads/events/${value['images'][0]['image_link']}` : defaultImage;
+      default:
+        return defaultImage;
     }
-    if ('image' in value) {
-      return value['image'] ? `${environment.apiUrl}uploads/programs/${value['image']}` : '/images/no-image.jpg';
-    }
-    return '/images/no-image.jpg';
   }
 }

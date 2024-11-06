@@ -9,9 +9,9 @@ const authFeature = createFeature({
   name: 'auth',
   reducer: createReducer(
     initialState,
-    on(authActions.authentication, (state) => ({ ...state })),
-    on(authActions.authenticateUser, (state, actions) => ({ ...state, user: actions.user }))
+    on(authActions.signIn, (state, actions) => ({ ...state, user: actions.user })),
+    on(authActions.signOut, (state) => ({ ...state, user: null }))
   )
 });
 
-export const { reducer: authReducers, selectUser, selectAuthState } = authFeature;
+export const { reducer: authReducers, selectUser } = authFeature;

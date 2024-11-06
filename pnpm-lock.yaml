@@ -50,9 +50,6 @@ importers:
       '@ngneat/query':
         specifier: ^3.0.0
         version: 3.0.0(@angular/core@18.2.2(rxjs@7.8.1)(zone.js@0.14.10))(@tanstack/query-core@5.59.9)
-      '@ngrx/effects':
-        specifier: ^18.0.1
-        version: 18.1.1(@angular/core@18.2.2(rxjs@7.8.1)(zone.js@0.14.10))(@ngrx/store@18.1.1(@angular/core@18.2.2(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(rxjs@7.8.1)
       '@ngrx/operators':
         specifier: 18.0.1
         version: 18.0.1(rxjs@7.8.1)
@@ -1651,13 +1648,6 @@ packages:
     peerDependencies:
       '@angular/core': '>=16.0.0 <19.0.0'
       '@tanstack/query-core': ^5.4.3
-
-  '@ngrx/effects@18.1.1':
-    resolution: {integrity: sha512-XXob8kYEvYMaZwgHtrrTW0XZargbu5PloEpNHLnzB8jPk0yWEw6keryxaF09Ylws1779MWvMmF/YP2rPl04nHQ==}
-    peerDependencies:
-      '@angular/core': ^18.0.0
-      '@ngrx/store': 18.1.1
-      rxjs: ^6.5.3 || ^7.5.0
 
   '@ngrx/operators@18.0.1':
     resolution: {integrity: sha512-M+QMrHNKgcuiLaRGZxJ4aQi5/OCRfKC4+T/63dsHyLFZ53/FFpF6a/ytSO1Q+tzOplZ5o99S+i8FVaZqNQ3LmQ==}
@@ -6973,13 +6963,6 @@ snapshots:
     dependencies:
       '@angular/core': 18.2.2(rxjs@7.8.1)(zone.js@0.14.10)
       '@tanstack/query-core': 5.59.9
-      tslib: 2.7.0
-
-  '@ngrx/effects@18.1.1(@angular/core@18.2.2(rxjs@7.8.1)(zone.js@0.14.10))(@ngrx/store@18.1.1(@angular/core@18.2.2(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(rxjs@7.8.1)':
-    dependencies:
-      '@angular/core': 18.2.2(rxjs@7.8.1)(zone.js@0.14.10)
-      '@ngrx/store': 18.1.1(@angular/core@18.2.2(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
-      rxjs: 7.8.1
       tslib: 2.7.0
 
   '@ngrx/operators@18.0.1(rxjs@7.8.1)':

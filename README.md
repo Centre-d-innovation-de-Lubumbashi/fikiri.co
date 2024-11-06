@@ -1,3 +1,3 @@
-# Centre d'innovation de Lubumbashi website
+# Fikiri website
 
 Website link [fikiri.co](https://fikiri.co)
