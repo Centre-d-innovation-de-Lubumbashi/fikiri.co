@@ -1,0 +1,30 @@
+<ng-container *ngIf="uploadImage.result$ | async as reslult">
+  <div class="flex flex-col gap-3 items-start py-4">
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <div class="w-32 h-32 bg-gray-200/60 relative rounded-full flex flex-col items-center justify-center">
+        @if (user()) {
+          <img [ngSrc]="user | apiIMG: 'user'" class="rounded-full object-cover" [alt]="user().name" fill priority />
+        }
+        <button
+          type="button"
+          (click)="file.click()"
+          class="absolute bg-gray-100 rounded-full shadow-lg -bottom-2 p-2.5 flex items-center justify-center right-0">
+          <mat-icon class="icon-size-5" svgIcon="heroicons_outline:camera" />
+          <input
+            id="thumb"
+            name="thumb"
+            type="file"
+            class="hidden"
+            accept="image/*"
+            (change)="onImageChange($event, user()?.id)"
+            #file />
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-gray-900 text-xl font-semibold">Mon compte</h3>
+        <p class="text-gray-800 font-medium">Inscrit le {{ user()?.created_at | date: 'longDate' }}</p>
+        <p class="text-gray-600 font-medium text-sm">{{ user()?.email }}</p>
+      </div>
+    </div>
+  </div>
+</ng-container>

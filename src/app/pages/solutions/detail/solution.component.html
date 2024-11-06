@@ -1,14 +1,14 @@
 <ng-container *ngIf="solution$ | async as result">
   <div class="flex flex-col mx-6 justify-center max-w-screen-md md:mx-auto border-x border-dashed">
-    @if (result.data.solution; as solution) {
+    @if (result.data?.solution; as solution) {
       @if (solution && solution.name) {
         <h2 class="font-semibold text-gray-800 text-2xl mb-2 p-3 pt-24 first-letter:capitalize">
           {{ solution.name }}, {{ solution.created_at | date: 'longDate' }}
         </h2>
       }
-      <div class="relative mb-4 h-auto w-full aspect-video">
+      <div class="relative mb-4 h-96 w-full aspect-video">
         <img
-          ngSrc="assets/images/default-placeholder.png"
+          [ngSrc]="solution | apiIMG: 'solution'"
           alt="hero"
           class="object-cover transition-opacity duration-300"
           fill />
@@ -39,7 +39,7 @@
         En cours de chargement...
       </div>
     }
-    @if (!result.isLoading && !result.data.solution) {
+    @if (!result.isError) {
       <div class="h-screen flex flex-col items-center gap-4 justtify-center">
         <h4>Aucune solution trouvé</h4>
         <p class="text-4xl font-bondiMono font-black">404</p>
