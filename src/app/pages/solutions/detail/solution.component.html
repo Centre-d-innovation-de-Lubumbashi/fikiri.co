@@ -39,7 +39,7 @@
         En cours de chargement...
       </div>
     }
-    @if (!result.isError) {
+    @if (result.isError) {
       <div class="h-screen flex flex-col items-center gap-4 justtify-center">
         <h4>Aucune solution trouvé</h4>
         <p class="text-4xl font-bondiMono font-black">404</p>
