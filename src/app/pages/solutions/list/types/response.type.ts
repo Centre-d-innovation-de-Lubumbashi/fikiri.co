@@ -1,6 +1,6 @@
-import { ISolution } from '@core/types/models.type';
+import { ISolution } from 'app/common/types/models.type';
 
-export interface ISolutionsReponse {
+export default interface ISolutionsReponse {
   solutions: ISolution[];
   count: number;
 }

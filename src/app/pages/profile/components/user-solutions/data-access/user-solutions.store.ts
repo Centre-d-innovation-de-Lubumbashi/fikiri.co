@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { ISolution } from '../../../../../../shared/types/models.interfaces';
 import { ToastrService } from 'ngx-toastr';
 import { ISolutionsStore } from '../types/user-solutions-store.type';
-import { SolutionsService } from '../solutions.service';
+import { SolutionsService } from '../user-solutions.service';
 
 @Injectable()
 export class SolutionsStore extends ComponentStore<ISolutionsStore> {

@@ -4,14 +4,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MutationResult } from '@ngneat/query';
-import { IUser } from '@core/types/models.type';
-import { UpdatePasswordService } from './update.service';
+import { UpdatePasswordService } from './update-password.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { IUser } from 'app/common/types/models.type';
 
 @Component({
   selector: 'app-update-password',
   standalone: true,
-  templateUrl: './update.component.html',
+  templateUrl: './update-password.component.html',
   imports: [ReactiveFormsModule, CommonModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule]
 })
 export class UpdatePasswordComponent {

@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { injectMutation, MutationResult } from '@ngneat/query';
-import { IPasswordPayload } from './types/update.type';
-import { IUser } from '@core/types/models.type';
+import { IPasswordPayload } from './types/update-password.type';
+import { IUser } from 'app/common/types/models.type';
 import { map } from 'rxjs';
 
 @Injectable({

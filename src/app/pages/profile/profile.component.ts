@@ -1,14 +1,14 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { InfoComponent } from './components/info/info.component';
-import { UpdateProfileComponent } from './components/update-profile/update.component';
-import { UpdatePasswordComponent } from './components/update-password/update.component';
+import { InfoComponent } from './components/user-detail/user-detail.component';
+import { UpdateProfileComponent } from './components/edit-profile/edit-profile.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { CommonModule } from '@angular/common';
-import { UserSolutionsComponent } from './components/solutions/solutions.component';
+import { UserSolutionsComponent } from './components/user-solutions/user-solutions.component';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { selectUser } from '@core/auth/auth.reducers';
-import { IUser } from '@core/types/models.type';
+import { IUser } from 'app/common/types/models.type';
 
 @Component({
   selector: 'app-profile',

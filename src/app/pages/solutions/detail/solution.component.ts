@@ -5,9 +5,9 @@ import { environment } from 'environments/environment';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SolutionService } from './solution.service';
 import { ObservableQueryResult } from '@ngneat/query';
-import { IImage } from '@core/types/models.type';
 import { ISolutionResponse } from './types/response.type';
-import { ImgPipe } from '@core/pipes/img.pipe';
+import { ImgPipe } from 'app/common/pipes/img.pipe';
+import { IImage } from 'app/common/types/models.type';
 
 @Component({
   selector: 'app-solution',

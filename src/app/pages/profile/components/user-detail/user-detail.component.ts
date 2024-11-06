@@ -1,16 +1,16 @@
 import { Component, inject, input } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ImgPipe } from '@core/pipes/img.pipe';
-import { InfoService } from './info.service';
+import { ImgPipe } from 'app/common/pipes/img.pipe';
+import { InfoService } from './user-detail.service';
 import { MutationResult } from '@ngneat/query';
-import { IUser } from '@core/types/models.type';
+import { IUser } from 'app/common/types/models.type';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-info',
+  selector: 'app-detail',
   standalone: true,
-  templateUrl: './info.component.html',
+  templateUrl: './user-detail.component.html',
   imports: [NgOptimizedImage, CommonModule, RouterModule, ImgPipe, MatIconModule]
 })
 export class InfoComponent {

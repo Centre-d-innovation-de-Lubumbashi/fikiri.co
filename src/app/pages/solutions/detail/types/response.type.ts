@@ -1,4 +1,4 @@
-import { ISolution } from '@core/types/models.type';
+import { ISolution } from 'app/common/types/models.type';
 
 export interface ISolutionResponse {
   solution: ISolution | null;

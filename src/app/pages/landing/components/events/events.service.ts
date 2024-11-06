@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { injectQuery, ObservableQueryResult } from '@ngneat/query';
 import { map } from 'rxjs';
-import { IEvent } from '@core/types/models.type';
+import { IEvent } from 'app/common/types/models.type';
 
 @Injectable({
   providedIn: 'root'

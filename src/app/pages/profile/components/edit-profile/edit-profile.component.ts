@@ -3,15 +3,15 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { IUser } from '@core/types/models.type';
-import { UpdateInfoService } from './update.service';
+import { IUser } from 'app/common/types/models.type';
+import { UpdateInfoService } from './edit-profile.service';
 import { MutationResult } from '@ngneat/query';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-update-info',
   standalone: true,
-  templateUrl: './update.component.html',
+  templateUrl: './edit-profile.component.html',
   imports: [ReactiveFormsModule, CommonModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule]
 })
 export class UpdateProfileComponent implements OnInit {

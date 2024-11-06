@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IUser } from '@core/types/models.type';
+import { IUser } from 'app/common/types/models.type';
 import { AuthService } from '../../../../@core/auth/auth.service';
 import { Store } from '@ngrx/store';
 import { selectUser } from '@core/auth/auth.reducers';

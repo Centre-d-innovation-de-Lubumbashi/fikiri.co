@@ -1,8 +1,8 @@
 import { Component, input } from '@angular/core';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ISolution } from '@core/types/models.type';
-import { ImgPipe } from '@core/pipes/img.pipe';
+import { ISolution } from 'app/common/types/models.type';
+import { ImgPipe } from 'app/common/pipes/img.pipe';
 
 @Component({
   selector: 'app-solution-card',

@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ISolutionResponse } from './types/response.type';
-import { ISolution } from '@core/types/models.type';
+import { ISolution } from 'app/common/types/models.type';
 import { injectQuery, ObservableQueryResult } from '@ngneat/query';
 
 @Injectable({

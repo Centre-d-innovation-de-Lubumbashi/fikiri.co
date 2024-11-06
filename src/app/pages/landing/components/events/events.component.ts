@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, DatePipe, NgOptimizedImage } from '@angular/common';
 import { EventsService } from './events.service';
-import { IEvent } from '@core/types/models.type';
+import { IEvent } from 'app/common/types/models.type';
 import { ObservableQueryResult } from '@ngneat/query';
-import { ImgPipe } from '@core/pipes/img.pipe';
+import { ImgPipe } from 'app/common/pipes/img.pipe';
 
 @Component({
   selector: 'app-events',

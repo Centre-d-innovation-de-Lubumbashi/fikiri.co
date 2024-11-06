@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { SolutionCardComponent } from 'app/common/components/solution-card/solution-card.component';
 import { SolutionCardSkeletonComponent } from 'app/common/components/solution-card-skeleton/solution-card-skeleton.component';
 import { ObservableQueryResult } from '@ngneat/query';
-import { ISolution } from '@core/types/models.type';
+import { ISolution } from 'app/common/types/models.type';
 
 @Component({
   selector: 'app-awards',

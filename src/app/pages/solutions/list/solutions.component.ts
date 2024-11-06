@@ -9,9 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { IQueryParams } from './types/query-params.type';
 import { ObservableQueryResult } from '@ngneat/query';
-import { ISolutionsReponse } from './types/response.type';
+import ISolutionsReponse from './types/response.type';
 import { SolutionsService } from './solutions.service';
-import { IEvent, IThematic } from '@core/types/models.type';
+import { IEvent, IThematic } from 'app/common/types/models.type';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({

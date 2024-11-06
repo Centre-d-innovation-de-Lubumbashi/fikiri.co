@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { ISolutionsReponse } from './types/response.type';
+import ISolutionsReponse from './types/response.type';
 import { IQueryParams } from './types/query-params.type';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { IEvent, IThematic } from '@core/types/models.type';
+import { IEvent, IThematic } from 'app/common/types/models.type';
 import { ISearchResponse } from './types/search-response.type';
 import { injectQuery, ObservableQueryResult } from '@ngneat/query';
 
