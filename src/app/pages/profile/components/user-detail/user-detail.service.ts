@@ -10,7 +10,7 @@ import { authActions } from '@core/auth/auth.actions';
 @Injectable({
   providedIn: 'root'
 })
-export class InfoService {
+export class UserDetailsService {
   #http = inject(HttpClient);
   #mutation = injectMutation();
   #store = inject(Store);

@@ -7,7 +7,7 @@ import { ISolution } from 'app/common/types/models.type';
 @Injectable({
   providedIn: 'root'
 })
-export class SolutionsService {
+export class UserSolutionsService {
   #http = inject(HttpClient);
   #query = injectQuery();
 

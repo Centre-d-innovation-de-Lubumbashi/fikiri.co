@@ -1,7 +1,8 @@
 <section class="px-8 mt-20 mb-10 max-w-screen-lg mx-auto" *ngIf="events$ | async as result">
   @if (result.data; as events) {
     <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-6">
-      Appels <span class="inline-block after:block after:w-full after:h-1 after:-mt-2 after:bg-sky-400">fikiri</span>
+      Appels
+      <span class="inline-block after:block after:w-full after:h-1 after:-mt-2 after:bg-primary-400">fikiri</span>
     </h1>
     <div class="">
       @for (event of events; track event.id) {
@@ -14,7 +15,7 @@
               fill />
           </div>
           <div
-            class="flex flex-col justify-center items-start bg-sky-950 text-white gap-4 gap-x-6 p-6 lg:py-16 lg:px-10 rounded-md">
+            class="flex flex-col justify-center items-start bg-primary-950 text-white gap-4 gap-x-6 p-6 lg:py-16 lg:px-10 rounded-md">
             <h2 class="text-lg md:text-xl font-semibold mb-3">
               {{ event.name }}
             </h2>

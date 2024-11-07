@@ -2,7 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ImgPipe } from 'app/common/pipes/img.pipe';
-import { InfoService } from './user-detail.service';
+import { UserDetailsService } from './user-detail.service';
 import { MutationResult } from '@ngneat/query';
 import { IUser } from 'app/common/types/models.type';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,9 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './user-detail.component.html',
   imports: [NgOptimizedImage, CommonModule, RouterModule, ImgPipe, MatIconModule]
 })
-export class InfoComponent {
+export class UserDetailsComponent {
   user = input.required<IUser>();
-  #infoService = inject(InfoService);
+  #infoService = inject(UserDetailsService);
   uploadImage: MutationResult<IUser, Error, unknown>;
 
   constructor() {

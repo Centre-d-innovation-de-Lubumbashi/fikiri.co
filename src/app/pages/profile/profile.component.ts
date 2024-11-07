@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { InfoComponent } from './components/user-detail/user-detail.component';
+import { UserDetailsComponent } from './components/user-detail/user-detail.component';
 import { UpdateProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { CommonModule } from '@angular/common';
@@ -16,7 +16,7 @@ import { IUser } from 'app/common/types/models.type';
   templateUrl: './profile.component.html',
   imports: [
     RouterLink,
-    InfoComponent,
+    UserDetailsComponent,
     UpdateProfileComponent,
     UpdatePasswordComponent,
     CommonModule,

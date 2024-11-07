@@ -8,7 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Animations } from '@core/animations';
 import { AlertComponent } from '@core/components/alert';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { AuthService } from '../../../../../@core/auth/auth.service';
+import { AuthService } from '@core/auth/auth.service';
 import { AuthCardComponent } from '../../components/auth-card/auth-card.component';
 import { RouterLink } from '@angular/router';
 

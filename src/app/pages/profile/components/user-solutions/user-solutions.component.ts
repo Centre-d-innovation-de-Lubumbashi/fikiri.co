@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NgOptimizedImage, DatePipe, CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SolutionsService } from './user-solutions.service';
+import { UserSolutionsService } from './user-solutions.service';
 import { ObservableQueryResult } from '@ngneat/query';
 import { ISolution } from 'app/common/types/models.type';
 import { ImgPipe } from 'app/common/pipes/img.pipe';
@@ -15,13 +15,9 @@ import { ImgPipe } from 'app/common/pipes/img.pipe';
 })
 export class UserSolutionsComponent implements OnInit {
   solutions$: ObservableQueryResult<ISolution[], Error>;
-  #solutionsService = inject(SolutionsService);
+  #userSolutionsService = inject(UserSolutionsService);
 
   ngOnInit(): void {
-    this.solutions$ = this.#solutionsService.getSolutions();
-  }
-
-  padWord(word: string): string {
-    return word.slice(0, 10).padEnd(3, '...');
+    this.solutions$ = this.#userSolutionsService.getSolutions();
   }
 }

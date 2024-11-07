@@ -8,18 +8,25 @@ import { environment } from 'environments/environment';
 export class ImgPipe implements PipeTransform {
   transform(value: unknown, key: string): string {
     const apiUrl = environment.apiUrl;
-    const defaultImage = '/images/default-placeholder.png';
-
-    const paths: Record<string, string> = {
-      user: value?.['profile']
-        ? `uploads/profiles/${value['profile']}`
-        : value['google_image'] || '/images/avatar-default.webp',
-      solution: value?.['images']?.at(-1)?.image_link
-        ? `uploads/solutions/${value['images'].at(-1).image_link}`
-        : defaultImage,
-      event: value?.['images']?.[0]?.image_link ? `uploads/events/${value['images'][0].image_link}` : defaultImage
+    const defaultImage = {
+      user: '/images/avatar-default.webp',
+      default: '/images/no-image.jpg'
     };
 
-    return apiUrl + (paths[key] ?? defaultImage);
+    if (key === 'user') {
+      return value['profile']
+        ? `${apiUrl}uploads/profiles/${value['profile']}`
+        : (value['google_image'] ?? defaultImage.user);
+    }
+
+    if (key === 'solution') {
+      return value['images']
+        ? `${apiUrl}uploads/solutions/${value['images']?.at(-1)?.image_link}`
+        : defaultImage.default;
+    }
+
+    if (key === 'event') {
+      return value['images'] ? `${apiUrl}uploads/events/${value['images'][0].image_link}` : defaultImage.default;
+    }
   }
 }
